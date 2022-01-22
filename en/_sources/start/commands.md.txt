@@ -459,41 +459,33 @@ ck cp {CK repo}:{CK module}:{CK entry name} {CK new repo}::{CK new entry name}
 ck cp ctuning-datasets-min:dataset:image-jpeg-dnn-computer-mouse local::new-image
 ```
 
+## CLI 管理 CK 操作
 
+CK 中的所有功能都是作为 CK 模块中的自动化操作来实现的。
 
+所有 CK 模块都继承了上一节中的默认自动化操作，以管理相关的 CK 条目。
 
-
-
-## CLI to manage CK actions
-
-All the functionality in CK is implemented as automation actions in CK modules.
-
-All CK modules inherit default automation actions from the previous section to manage associated CK entries.
-
-A new action can be added to a given CK module as follows:
+一个新的动作可以添加到给定的 CK 模块，如下所示：
 
 ```bash
 ck add_action {module name} --func={action name}
 ```
 
-CK will ask you a few questions and will create a dummy function in the given CK module.
-You can immediately test it as follows:
+C K会问你一些问题，并在给定的 CK 模块中创建一个虚拟函数。您可以立即测试它，如下所示：
+
 ```bash
 ck {action name} {module name}
 ```
 
-It will just print the input as JSON to let you play with the command line 
-and help you understand how CK converts the command line parameters
-into the dictionary input for this function.
+它只是将输入打印为 JSON，让您可以使用命令行，并帮助您理解 CK 如何将命令行参数转换为这个函数的字典输入。
 
-Next, you can find this module and start modifying this function:
+接下来，你可以找到这个模块并开始修改这个函数：
+
 ```bash
 ck find module:{module name}
 ```
 
-For example, you can add the following Python code inside
-this function to load some meta description of the entry ''my data''
-when you call the following action:
+例如，当你调用以下操作时，你可以在这个函数中添加以下 Python 代码来加载 “my data” 条目的元描述：
 
 ```bash
 ck {action name} {module name}:{my data}
@@ -520,24 +512,24 @@ ck {action name} {module name}:{my data}
     uid=r['data_uid']   # Only UID of the entry
 ```
 
-Note that *uoa* means that this variable accepts Unique ID or Alias (user-friendly name).
+注意，*uoa* 意味着这个变量接受 Unique ID 或 Alias （用户友好的名称）。
 
-Here *ck* is a CK kernel with various productivity functions
-and one unified *access* function to all CK modules and actions
-with unified dictionary (JSON) I/O.
+这里 *ck* 是一个 CK 内核，具有各种生产功能和一个统一的 *access*  功能，可以使用统一字典（JSON） I/O访问所有ck模块和动作。
 
-You can find JSON API for all internal CK actions from the previous section that manage CK entries
-from the command line as follows:
+你可以找到 JSON API 的所有内部 CK 操作，从上一节管理 CK 条目命令行如下：
+
 ```bash
  ck get_api --func={internal action}
 ```
 
-For example, you can check the API of the "load" action as follows:
+例如，你可以检查 “load” 操作的API如下：
+
 ```bash
  ck get_api --func=load
 ```
 
-For non-internal actions, you can check their API as follows:
+对于非内部操作，你可以检查它们的 API 如下：
+
 ```bash
  ck {action name} {module name} --help
 ```
@@ -599,11 +591,9 @@ Finally, a given CK module has an access to the 3 dictionaries:
 
 ## CK Python API
 
-One of the goals of the CK framework was to make it very simple for any user to access any automation action.
-That is why we have developed just one [unified Python "access" function](https://ck.readthedocs.io/en/latest/src/ck.html#ck.kernel.access) 
-that allows one to access all automation actions with a simple I/O (dictionary as input and dictionary as output).
+CK 框架的目标之一是让任何用户都可以非常简单地访问任何自动化操作。这就是为什么我们只开发了一个[统一的 Python "access" 函数](https://ck.readthedocs.io/en/latest/src/ck.html#ck.kernel.access)，它允许使用一个简单的 I/O（字典作为输入，字典作为输出）访问所有自动化操作。
 
-You can call this function from any Python script or from CK modules as follows:
+你可以从任何 Python 脚本或 CK 模块调用这个函数，如下所示：
 
 ```Python
 import ck.kernel as ck
@@ -623,20 +613,11 @@ if r['return']>0: return r # if used inside CK modules to propagate to all CK ca
 # See API of this automation action (ck action module --help)
 ```
 
-Such approach allows users to continue extending different automation actions by adding new keys
-while keeping backward compatibility. That's how we managed to develop 50+ modules with the community
-without breaking portable CK workflows for our ML&systems R&D.
+这种方法允许用户通过添加新键继续扩展不同的自动化操作，同时保持向后兼容性。这就是我们如何成功地开发了 50 多个模块与社区，而不破坏便携式 CK 工作流的 ML&systems R&D。
 
-At the same time, we have implemented a number of "productivity" functions
-in the CK kernel that are commonly used by many researchers and engineers.
-For example, you can load JSON files, list files in directories, copy strings to clipboards.
-At the same time, we made sure that these functions work in the same way across
-different Python versions (2.7+ and 3+) and different operating systems 
-thus removing this burden from developers.
+与此同时，我们在CK内核中实现了许多研究人员和工程师常用的 “productivity” 函数。例如，你可以加载 JSON 文件，在目录中列出文件，将字符串复制到剪贴板。同时，我们确保这些函数在不同的 Python 版本（2.7+ 和 3+）和不同的操作系统中以相同的方式工作，从而为开发人员消除了这个负担。
 
-You can see the list of such productivity functions [here](https://ck.readthedocs.io/en/latest/src/ck.html).
-For example, you can [load a json file](https://ck.readthedocs.io/en/latest/src/ck.html#ck.kernel.load_json_file) 
-in your script or CK module in a unified way as follows:
+您可以在这里看到这些生产力函数的列表。例如，你可以在你的脚本或 CK 模块中统一[加载 json 文件](https://ck.readthedocs.io/en/latest/src/ck.html#ck.kernel.load_json_file)，如下所示：
 
 ```Python
 import ck.kernel as ck
