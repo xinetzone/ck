@@ -205,6 +205,16 @@ commentsRunWhenDOMLoaded(addUtterances);
      CK CLI 和 API
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="specs.html">
+     CK specs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="portable-workflows.html">
+     自动化 ML&amp;systems R&amp;D
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -368,6 +378,58 @@ commentsRunWhenDOMLoaded(addUtterances);
    添加新的 CK 软件检测插件
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-new-ck-packages">
+   Add new CK packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pack-ck-repository">
+   Pack CK repository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-ck-repository-for-digital-libraries">
+   Prepare CK repository for Digital Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-a-docker-container-with-ck-workflows">
+   Prepare a Docker container with CK workflows
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-more-complex-workflows">
+   Create more complex workflows
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-shell-scripts">
+     Using shell scripts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-ck-modules">
+     Using CK modules
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generate-reproducible-and-interactive-articles">
+   Generate reproducible and interactive articles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publish-ck-repositories-workflows-and-components">
+   Publish CK repositories, workflows, and components
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contact-the-ck-community">
+   Contact the CK community
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -423,6 +485,58 @@ commentsRunWhenDOMLoaded(addUtterances);
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id7">
    添加新的 CK 软件检测插件
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#add-new-ck-packages">
+   Add new CK packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pack-ck-repository">
+   Pack CK repository
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-ck-repository-for-digital-libraries">
+   Prepare CK repository for Digital Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prepare-a-docker-container-with-ck-workflows">
+   Prepare a Docker container with CK workflows
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#create-more-complex-workflows">
+   Create more complex workflows
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-shell-scripts">
+     Using shell scripts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-ck-modules">
+     Using CK modules
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#generate-reproducible-and-interactive-articles">
+   Generate reproducible and interactive articles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publish-ck-repositories-workflows-and-components">
+   Publish CK repositories, workflows, and components
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contact-the-ck-community">
+   Contact the CK community
   </a>
  </li>
 </ul>
@@ -823,6 +937,385 @@ ck search dataset --tags<span class="o">=</span>dataset,image,pgm
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
+<p>First, you must update <em>tags</em> keys for your new software,
+<em>soft_name</em> to provide a user-friendly name for your software,
+<em>env_prefix</em> to expose different environment variables
+for the detected software in the automatically generated virtual environment script
+(<em>env.sh</em> or <em>env.bat</em>), and <em>soft_file</em> keys to tell CK which unique filename inside this soft
+to search for when detecting this software automatically on your system.</p>
+<p>If the <em>soft_file</em> is the same across all platforms (Linux, Windows, MacOS, etc),
+you can use the following universal key:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&quot;soft_file_universal&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;libGL$#file_ext_dll#$&quot;</span><span class="p">,</span><span class="w"></span>
+</pre></div>
+</div>
+<p>CK will then substitute <em>file_ext_dll</em> with <em>dll</em> key from the <em>file_extensions</em> dictionary
+in the target OS (see example for the <a class="reference external" href="https://github.com/ctuning/ck-env/blob/master/os/linux-64/.cm/meta.json#L39">64-bit Linux</a>
+and <a class="reference external" href="https://github.com/ctuning/ck-env/blob/master/os/windows-64/.cm/meta.json#L34">64-bit Windows</a>).</p>
+<p>You can also tell CK to detect a given soft for a different target such as Android as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck detect soft:compiler.gcc.android.ndk --target_os<span class="o">=</span>android21-arm64
+ck detect soft --tags<span class="o">=</span>compiler,android,ndk,llvm --target_os<span class="o">=</span>android21-arm64
+</pre></div>
+</div>
+<p>Next, you may want to update the <a class="reference external" href="https://github.com/ctuning/ck-env/blob/master/soft/lib.armcl/customize.py">customize.py file</a> in the new entry.
+This Python script can have multiple functions to customize the detection of a given software
+and update different environment variables in the automatically generated “env.sh” or “env.bat”
+for the virtual CK environment.</p>
+<p>For example, <em>setup</em> function receives a full path to a found software file specified using the above <em>soft_name</em> keys:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">cus</span><span class="o">=</span><span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;customize&#39;</span><span class="p">,{})</span>
+    <span class="n">fp</span><span class="o">=</span><span class="n">cus</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;full_path&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is then used to prepare different environment variables with different paths (see <em>env</em> dictionary)
+as well as embedding commands directly to “env.sh” or “env.bat” using “s” string in the returned dictionary:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;return&#39;</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;bat&#39;</span><span class="p">:</span><span class="n">s</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Here is an example of the automatically generated “env.sh” on a user machine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /bin/bash</span>
+<span class="c1"># CK generated script</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;1&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$CK_ENV_LIB_ARMCL_SET</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="k">return</span><span class="p">;</span> <span class="k">fi</span><span class="p">;</span> <span class="k">fi</span>
+
+<span class="c1"># Soft UOA           = lib.armcl (fc544df6941a5491)  (lib,arm,armcl,arm-compute-library,compiled-by-gcc,compiled-by-gcc-8.1.0,vopencl,vdefault,v18.05,v18,channel-stable,host-os-linux-64,tar</span>
+get-os-linux-64,64bits,v18.5,v18.5.0<span class="o">)</span>
+<span class="c1"># Host OS UOA        = linux-64 (4258b5fe54828a50)</span>
+<span class="c1"># Target OS UOA      = linux-64 (4258b5fe54828a50)</span>
+<span class="c1"># Target OS bits     = 64</span>
+<span class="c1"># Tool version       = 18.05-b3a371b</span>
+<span class="c1"># Tool split version = [18, 5, 0]</span>
+
+<span class="c1"># Dependencies:</span>
+. /home/fursin/CK/local/env/fd0d1d044f44c09b/env.sh
+. /home/fursin/CK/local/env/72fa25bd445a993f/env.sh
+
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_LIB</span><span class="o">=</span>/home/fursin/CK-TOOLS/lib-armcl-opencl-18.05-gcc-8.1.0-linux-64/install/lib
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_INCLUDE</span><span class="o">=</span>/home/fursin/CK-TOOLS/lib-armcl-opencl-18.05-gcc-8.1.0-linux-64/install/include
+
+
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="s2">&quot;/home/fursin/CK-TOOLS/lib-armcl-opencl-18.05-gcc-8.1.0-linux-64/install/lib&quot;</span>:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">export</span> <span class="nv">LIBRARY_PATH</span><span class="o">=</span><span class="s2">&quot;/home/fursin/CK-TOOLS/lib-armcl-opencl-18.05-gcc-8.1.0-linux-64/install/lib&quot;</span>:<span class="nv">$LIBRARY_PATH</span>
+
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL</span><span class="o">=</span>/home/fursin/CK-TOOLS/lib-armcl-opencl-18.05-gcc-8.1.0-linux-64/install
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_CL_KERNELS</span><span class="o">=</span>/home/fursin/CK-TOOLS/lib-armcl-opencl-18.05-gcc-8.1.0-linux-64/src/src/core/CL/cl_kernels/
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_DYNAMIC_CORE_NAME</span><span class="o">=</span>libarm_compute_core.so
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_DYNAMIC_NAME</span><span class="o">=</span>libarm_compute.so
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_LFLAG</span><span class="o">=</span>-larm_compute
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_LFLAG_CORE</span><span class="o">=</span>-larm_compute_core
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_SRC</span><span class="o">=</span>/home/fursin/CK-TOOLS/lib-armcl-opencl-18.05-gcc-8.1.0-linux-64/src
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_SRC_INCLUDE</span><span class="o">=</span>/home/fursin/CK-TOOLS/lib-armcl-opencl-18.05-gcc-8.1.0-linux-64/src/include
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_STATIC_CORE_NAME</span><span class="o">=</span>libarm_compute_core.a
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_STATIC_NAME</span><span class="o">=</span>libarm_compute.a
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_TESTS</span><span class="o">=</span>/home/fursin/CK-TOOLS/lib-armcl-opencl-18.05-gcc-8.1.0-linux-64/src/tests
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_UTILS</span><span class="o">=</span>/home/fursin/CK-TOOLS/lib-armcl-opencl-18.05-gcc-8.1.0-linux-64/src/utils
+
+<span class="nb">export</span> <span class="nv">CK_ENV_LIB_ARMCL_SET</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p>All these environment variables will be exposed to the CK program compilation and execution workflow
+if this software dependency is seleted in a program meta description.</p>
+<p>You can also look at how this functionality is implemented in the <a class="reference external" href="https://github.com/ctuning/ck-env/blob/master/module/soft/module.py">CK soft module</a>.</p>
+<p>There are many options and nuances so we suggest you to have a look
+at existing examples or contact <a class="reference external" href="https://cKnowledge.org/contacts.html">the CK community</a> for further details.
+We regularly explain users how to add new software detection plugins and packages.</p>
+</div>
+<div class="section" id="add-new-ck-packages">
+<h2>Add new CK packages<a class="headerlink" href="#add-new-ck-packages" title="永久链接至标题">¶</a></h2>
+<p>Whenever a required software is not found, CK will automatically search
+for existing packages with the same tags for a given target
+in all installed CK repositories.</p>
+<p><a class="reference external" href="https://cKnowledge.io/c/module/package">CK package module</a> provides a unified JSON API
+to automatically download, install, and potentially rebuild a given package
+(software, datasets, models, etc) in a portable way across Linux, Windows, MacOS, Android,
+and other supported platforms. It is also a unified front-end for other
+package managers and build tools including make, cmake, scons, Spack, EasyBuild, etc.</p>
+<p>If CK packages are not found, CK will print notes from the <em>install.txt</em> file
+from a related software detection plugin about how to download and install such package manually
+as shown in this <a class="reference external" href="https://github.com/ctuning/ck-env/blob/master/soft/compiler.cuda/install.txt">example</a>
+for CUDA.</p>
+<p>In such case, you may be interested to provide a new CK package to be reused either in your workgroup
+or by the broad community to automate the installation.</p>
+<p>Similar to adding CK software detection plugins, you must first find the most close package
+from this <a class="reference external" href="https://cKnowledge.io/packages">online index</a>, download it,
+and make a new copy in your repository unless you want to share it immediately with the community
+in already <a class="reference external" href="https://cKnowledge.io/repos">existing CK repositories</a>.</p>
+<p>For example, let’s copy a CK protobuf package that downloads a given protobuf version in a tgz archive
+and uses cmake to build it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck cp package:lib-protobuf-3.5.1-host my-new-repo:package:my-new-lib
+</pre></div>
+</div>
+<p>Note, that all CK packages must be always connected with some software detection plugins
+such as “soft:lib.my-new-lib” created in the previous section.
+You just need to find its Unique ID as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck info soft:lib.my-new-lib
+</pre></div>
+</div>
+<p>and add it to the <em>soft_uoa</em> key in the package <em>meta.json</em>.</p>
+<p>Next, copy/paste <em>the same</em> tags from the <em>meta.json</em> of the soft plugin
+to the <em>meta.json</em> of the package and add extra tags specifying a version.
+See examples of such tags in existing packages
+such as <a class="reference external" href="https://github.com/ctuning/ck-math/blob/master/package/lib-armcl-opencl-18.05/.cm/meta.json">lib-armcl-opencl-18.05</a>
+and <a class="reference external" href="https://github.com/ctuning/ck-env/blob/master/package/compiler-llvm-10.0.0-universal/.cm/meta.json">compiler-llvm-10.0.0-universal</a>.</p>
+<p>Alternatively, you can add a new CK package using existing templates
+while specifying a related software plugin in the command line as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck add my-new-repo:package:my-new-lib --soft<span class="o">=</span>lib.my-new-lib
+</pre></div>
+</div>
+<p>In such case, CK will automatically substitute correct values for <em>soft_uoa</em> and <em>tags</em> keys!</p>
+<p>Next, you need to update the <em>.cm/meta.json</em> file in the new CK package entry:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck find package:my-new-lib
+</pre></div>
+</div>
+<p>For example, you need to update other keys in the package meta.json
+to customize downloading and potentially building (building is not strictly required
+when you download datasets, models, and other binary packages):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="nt">&quot;install_env&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;CMAKE_CONFIG&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Release&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_AUTOGEN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NO&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_BUILD_TYPE&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cmake&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_CONFIGURE_FLAGS&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-Dprotobuf_BUILD_TESTS=OFF&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_CONFIGURE_FLAGS_LINUX&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-DCMAKE_INSTALL_LIBDIR=lib&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_CONFIGURE_FLAGS_WINDOWS&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-DBUILD_SHARED_LIBS=OFF -Dprotobuf_MSVC_STATIC_RUNTIME=OFF&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_FLAGS_LINUX&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;-fPIC&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v3.5.1.tar.gz&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_NAME1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v3.5.1.tar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_NAME2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;v3.5.1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_RENAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YES&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_SUB_DIR&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;protobuf-3.5.1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_SUB_DIR1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;protobuf-3.5.1/cmake&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_UNGZIP&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YES&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_UNTAR&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YES&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_UNTAR_SKIP_ERROR_WIN&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YES&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_URL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/google/protobuf/archive&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="nt">&quot;PACKAGE_WGET&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;YES&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3.5.1&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You can specify extra software dependencies using <em>deps</em> dictionary if needed.</p>
+<p>You must also describe the file which will be downloaded or created at the end of
+the package installation process using <em>end_full_path</em> key to let CK validate
+that the process was successful:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="nt">&quot;end_full_path&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;install$#sep#$lib$#sep#$libprotobuf.a&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;win&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;install\\lib\\libprotobuf.lib&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You can add or update a script to download and build a given package. See examples of such scripts in
+CK package <em>imagenet-2012-aux</em>: <span class="xref myst">install.sh</span>
+and <a class="reference external" href="https://github.com/ctuning/ck-env/blob/master/package/imagenet-2012-aux/install.bat">install.bat</a>
+to download ImageNet 2012 auxiliary dataset used in the <a class="reference external" href="https://cKnowledge.org/request">ACM ReQuEST-ASPLOS tournament</a>
+and <a class="reference external" href="https://github.com/ctuning/ck-mlperf">MLPerf™ submissions</a>.</p>
+<p>Note that CK will pass at least 2 environment variables to this script:</p>
+<ul class="simple">
+<li><p><em>PACKAGE_DIR</em> - the path to the CK package entry. This is useful if your script need additional files or subscripts from the CK package entry.</p></li>
+<li><p><em>INSTALL_DIR</em> - the path where this package will be installed. Note that <em>end_full_path</em> key will be appended to this path.</p></li>
+</ul>
+<p>If you need to know extra CK variables passed to this script,
+you can just export all environment variable to some file
+and check the ones starting from <em>CK_</em>.</p>
+<p>For example, if your package has software dependencies on a specific Python version,
+all environment variables from the resolved software dependencies will be available
+in your installation script. This allows you to use the <em>${CK_ENV_COMPILER_PYTHON_FILE}</em>
+environment variable instead of calling python directly to be able to automatically
+adapt to different python versions on your machine.</p>
+<p>At the end of the package installation, CK will check if this file was created,
+and will pass it to the related software detection plugin to register the CK virtual environment,
+thus fully automating the process of rebuilding the required environment
+for a given workflow!</p>
+<p>If you need to create a simple package that downloads an archive, uses <em>configure</em> to configure it,
+and builds it using <em>make</em>, use this <a class="reference external" href="https://github.com/ctuning/ck-env/tree/master/package/lib-openmpi-1.10.3-universal">lib-openmpi-1.10.3-universal CK package</a>
+as example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">&quot;PACKAGE_URL&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://www.open-mpi.org/software/ompi/v1.10/downloads&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="nt">&quot;PACKAGE_NAME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openmpi-1.10.3.tar.gz&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="nt">&quot;PACKAGE_NAME1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openmpi-1.10.3.tar&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="nt">&quot;PACKAGE_NAME2&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openmpi-1.10.3&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="nt">&quot;PACKAGE_SUB_DIR&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openmpi-1.10.3&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="nt">&quot;PACKAGE_SUB_DIR1&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;openmpi-1.10.3&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="nt">&quot;linux&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;install/lib/libmpi.so&quot;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Note that we described only a small part of all available functions of
+the CK package manager that we have developed in collaboration with our [http://cKnowledge.org/partners.html partners and users].
+We continue documenting them and started working on a user-friendly GUI
+to add new software and packages via web. You can try it <a class="reference external" href="https://cknowledge.io/add-artifact">here</a>.</p>
+</div>
+<div class="section" id="pack-ck-repository">
+<h2>Pack CK repository<a class="headerlink" href="#pack-ck-repository" title="永久链接至标题">¶</a></h2>
+<p>You can pack a given repository as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck zip repo:my-new-repo
+</pre></div>
+</div>
+<p>This command will create a <em>ckr-my-new-repo.zip</em> file that you can archive or send to your colleagues and <a class="reference external" href="https://cTuning.org/ae">artifact evaluators</a>.</p>
+<p>Other colleagues can then download it and install it on their system as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck add repo --zip<span class="o">=</span>ckr-my-new-repo.zip
+</pre></div>
+</div>
+<p>They can also unzip entries to an existing repository (local by default) as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ck</span> <span class="n">unzip</span> <span class="n">repo</span> <span class="o">--</span><span class="nb">zip</span><span class="o">=</span><span class="n">ckr</span><span class="o">-</span><span class="n">my</span><span class="o">-</span><span class="n">new</span><span class="o">-</span><span class="n">repo</span><span class="o">.</span><span class="n">zip</span>
+</pre></div>
+</div>
+<p>This enables a simple mechanism to share repositories, automation actions, and components
+including experimental results and reproducible papers with the community.
+We also hope it will help to automate the <a class="reference external" href="https://cTuning.org/ae">tedious Artifact Evaluation process</a>.</p>
+</div>
+<div class="section" id="prepare-ck-repository-for-digital-libraries">
+<h2>Prepare CK repository for Digital Libraries<a class="headerlink" href="#prepare-ck-repository-for-digital-libraries" title="永久链接至标题">¶</a></h2>
+<p>During the <a class="reference external" href="https://cKnowledge.org/request">ACM ReQuEST-ASPLOS’18 tournament</a>
+the authors needed to share the snapshots of their implementations of efficient deep learning algorithms
+for the ACM Digital Library.</p>
+<p>We have added a new automation to the CK to prepare such snapshots
+of a given repository with all dependencies and the latest CK framework in one zip file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck snapshot artifact --repo<span class="o">=</span>my-new-repo
+</pre></div>
+</div>
+<p>It will create a <em>ck-artifacts-{date}.zip</em> archive with all related CK repositories, the CK framework, and two scripts:</p>
+<ul class="simple">
+<li><p><em>prepare_virtual_ck.bat</em></p></li>
+<li><p><em>run_virtual_ck.bat</em></p></li>
+</ul>
+<p>The first script will unzip all CK repositories and the CK framework inside your current directory.</p>
+<p>The second script will set environment variables to point to above CK repositories in such a way
+that it will not influence you existing CK installation! Basically it creates a virtual CK environment
+for a given CK snapshot. At the end, this script will run <em>bash</em> on Linux/MacOS or <em>cmd</em> on Windows
+allowing you to run CK commands to prepare, run, and validate a given CK workflow
+while adapting to your platform and environment!</p>
+</div>
+<div class="section" id="prepare-a-docker-container-with-ck-workflows">
+<h2>Prepare a Docker container with CK workflows<a class="headerlink" href="#prepare-a-docker-container-with-ck-workflows" title="永久链接至标题">¶</a></h2>
+<p>One of the CK goals is to be a plug&amp;play connector between non-portable workflows and containers.</p>
+<p>CK can work both in native environments and containers. While portable CK workflows can fail
+in the latest environment, they will work fine inside a container with a stable environment.</p>
+<p>We have added the CK module <a class="reference external" href="https://cKnowledge.io/c/module/docker"><em>docker</em></a>
+to make it easier to build, share, and run Docker descriptions.
+Please follow the Readme in the <a class="reference external" href="https://github.com/ctuning/ck-docker">ck-docker</a> for more details.</p>
+<p>Please check examples of the CK Docker entries with CK workflows and components in the following projects:</p>
+<ul class="simple">
+<li><p>https://github.com/ctuning/ck-mlperf/tree/master/docker</p></li>
+<li><p>https://github.com/ctuning/ck-request-asplos18-caffe-intel/tree/master/docker</p></li>
+<li><p>https://github.com/ctuning/ck-docker/tree/master/docker</p></li>
+</ul>
+<p>You can find many of these containers ready for deployment, usage, and further customization
+at the <a class="reference external" href="https://hub.docker.com/u/ctuning">cTuning Docker hub</a>.</p>
+</div>
+<div class="section" id="create-more-complex-workflows">
+<h2>Create more complex workflows<a class="headerlink" href="#create-more-complex-workflows" title="永久链接至标题">¶</a></h2>
+<p>Users can create even more complex CK workflows that will automatically compile, run, and validate
+multiple applications with different compilers, datasets, and models across different platforms
+while sharing, visualizing, and comparing experimental results via live scoreboards.</p>
+<p>See the following examples:</p>
+<ul class="simple">
+<li><p>https://cKnowledge.org/rpi-crowd-tuning</p></li>
+<li><p>https://github.com/SamAinsworth/reproduce-cgo2017-paper (see <a class="reference external" href="https://github.com/SamAinsworth/reproduce-cgo2017-paper/blob/master/module/workflow-from-cgo2017-paper/module.py">CK workflow module</a>)</p></li>
+<li><p>https://github.com/ctuning/ck-scc18/wiki</p></li>
+<li><p>https://github.com/ctuning/ck-scc</p></li>
+<li><p>https://github.com/ctuning/ck-request-asplos18-results</p></li>
+</ul>
+<p>Users can create such workflows using two methods:</p>
+<div class="section" id="using-shell-scripts">
+<h3>Using shell scripts<a class="headerlink" href="#using-shell-scripts" title="永久链接至标题">¶</a></h3>
+<p>We have added CK module <em>script</em> that allows you to add a CK entry
+where you can store different system scripts. Such scripts can call
+different CK modules to install packages, build and run programs,
+prepare interactive graphs, generate papers, etc.</p>
+<p>You can see examples of such scripts from the <a class="reference external" href="https://github.com/SamAinsworth/reproduce-cgo2017-paper/tree/master/script/reproduce-cgo2017-paper">reproducible CGO’17 paper</a>.
+You can also check this <a class="reference external" href="https://www.cl.cam.ac.uk/~sa614/papers/Software-Prefetching-CGO2017.pdf">unified Artifact Appendix and reproducibility checklist</a>
+at the end of this article describing how to run those scripts.</p>
+<p>You can add your own CK script entry as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> $ ck add my-new-repo:script:my-scripts-to-run-experiments
+ $ ck add my-new-repo:script:my-scripts-to-generate-articles
+</pre></div>
+</div>
+<p>You can also write Python scripts calling CK APIs directly.
+For example, check <a class="reference external" href="https://github.com/dividiti/ck-request-asplos18-mobilenets-armcl-opencl/blob/master/script/mobilenets-tensorflow/benchmark.py">this ReQuEST-ASPLOS’18 benchmark script</a>
+to prepare, run, and customize <a class="reference external" href="https://cKnowledge.org/request">ACM REQUEST</a> experiments:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#! /usr/bin/python</span>
+
+import ck.kernel as ck
+import os
+
+...
+
+def <span class="k">do</span><span class="o">(</span>i, arg<span class="o">)</span>:
+
+    <span class="c1"># Process arguments.</span>
+    <span class="k">if</span> <span class="o">(</span>arg.accuracy<span class="o">)</span>:
+        <span class="nv">experiment_type</span> <span class="o">=</span> <span class="s1">&#39;accuracy&#39;</span>
+        <span class="nv">num_repetitions</span> <span class="o">=</span> <span class="m">1</span>
+    <span class="k">else</span>:
+        <span class="nv">experiment_type</span> <span class="o">=</span> <span class="s1">&#39;performance&#39;</span>
+        <span class="nv">num_repetitions</span> <span class="o">=</span> arg.repetitions
+
+    <span class="nv">random_name</span> <span class="o">=</span> arg.random_name
+    <span class="nv">share_platform</span> <span class="o">=</span> arg.share_platform
+
+    <span class="c1"># Detect basic platform info.</span>
+    <span class="nv">ii</span><span class="o">={</span><span class="s1">&#39;action&#39;</span>:<span class="s1">&#39;detect&#39;</span>,
+        <span class="s1">&#39;module_uoa&#39;</span>:<span class="s1">&#39;platform&#39;</span>,
+        <span class="s1">&#39;out&#39;</span>:<span class="s1">&#39;con&#39;</span><span class="o">}</span>
+    <span class="k">if</span> share_platform: ii<span class="o">[</span><span class="s1">&#39;exchange&#39;</span><span class="o">]=</span><span class="s1">&#39;yes&#39;</span>
+    <span class="nv">r</span><span class="o">=</span>ck.access<span class="o">(</span>ii<span class="o">)</span>
+    <span class="k">if</span> r<span class="o">[</span><span class="s1">&#39;return&#39;</span><span class="o">]</span>&gt;0: <span class="k">return</span> r
+
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-ck-modules">
+<h3>Using CK modules<a class="headerlink" href="#using-ck-modules" title="永久链接至标题">¶</a></h3>
+<p>You can also add and use any new module “workflow.my-new-experiments” as a workflow
+with different functions to prepare, run, and validate experiments.
+This is the preferred method that allows you to use unified CK APIs
+and reuse this module in other projects:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck add my-new-repo:module:workflow.my-new-experiments
+</pre></div>
+</div>
+<p>Note, that CK module and entry names are global in the CK. Therefore, we suggest you to find a unique name.</p>
+<p>You can then add any function to this workflow. For example, let’s add a function “run” to run your workflow:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck add_action my-new-repo:module:workflow.my-new-experiments --func<span class="o">=</span>run
+</pre></div>
+</div>
+<p>CK will create a working dummy function in the python code of this CK module that you can test immediately:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck run workflow.my-new-experiments
+</pre></div>
+</div>
+<p>You can then find the <em>module.py</em> from this CK module and update <em>run</em> function to implement your workflow:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck find module:workflow.my-new-experiments
+<span class="nb">cd</span> <span class="sb">`</span>ck find module:workflow.my-new-experiments<span class="sb">`</span>
+ls *.py
+</pre></div>
+</div>
+<p>Don’t hesitate to get in touch with the [[Contacts|CK community]] if you have questions or comments.</p>
+</div>
+</div>
+<div class="section" id="generate-reproducible-and-interactive-articles">
+<h2>Generate reproducible and interactive articles<a class="headerlink" href="#generate-reproducible-and-interactive-articles" title="永久链接至标题">¶</a></h2>
+<p>Unified CK APIs and portable CK workflows can help to automate all experiments as well as
+the generation of papers with all tables and graphs.</p>
+<p>As a proof-of-concept, we collaborated with the <a class="reference external" href="https://www.raspberrypi.org">Raspberry Pi foundation</a>
+to reproduce results from the <a class="reference external" href="https://en.wikipedia.org/wiki/MILEPOST_GCC">MILEPOST project</a>
+and develop a Collective Knowledge workflow for collaborative research into multi-objective autotuning
+and machine learning techniques.</p>
+<p>We have developed a <a class="reference external" href="https://github.com/ctuning/reproduce-milepost-project">MILEPOST GCC workflow</a>,
+shared results in the <a class="reference external" href="https://github.com/ctuning/ck-rpi-optimization-results">CK repository</a>,
+created <a class="reference external" href="https://cKnowledge.org/repo-beta">live CK dashboards to crowdsource autotuning</a>,
+and automatically generated a <a class="reference external" href="https://cKnowledge.org/rpi-crowd-tuning">live and interactive article</a>
+where results can be automatically updated by the community. The stable snapshot of such article
+can still be published as a <a class="reference external" href="https://arxiv.org/abs/1801.08024">traditional PDF paper</a>.</p>
+<p>However, it is still a complex process. We have started documenting this functionality <a class="reference external" href="https://github.com/ctuning/ck/wiki/Interactive-articles">here</a>
+and plan to gradually improve it. When we have more resources, we plan to add a web-based GUI to the <a class="reference external" href="https://cKnowledge.io">cKnowledge.io platform</a>
+to make it easier to create such live, reproducible, and interactive articles.</p>
+</div>
+<div class="section" id="publish-ck-repositories-workflows-and-components">
+<h2>Publish CK repositories, workflows, and components<a class="headerlink" href="#publish-ck-repositories-workflows-and-components" title="永久链接至标题">¶</a></h2>
+<p>We are developing an open <a class="reference external" href="https://cKnowledge.io">cKnowledge.io platform</a> to let users
+share and reuse CK repositories, workflows, and components similar to PyPI.
+Please follow <a class="reference external" href="https://cKnowledge.io/docs">this guide</a> to know more.</p>
+</div>
+<div class="section" id="contact-the-ck-community">
+<h2>Contact the CK community<a class="headerlink" href="#contact-the-ck-community" title="永久链接至标题">¶</a></h2>
+<p>We continue improving the CK technology, components, automation actions, workflows, and this documentation!
+If you have questions, encounter problems or have some feedback,
+do not hesitate to <a class="reference external" href="https://cKnowledge.org/contacts.html">contact us</a>!</p>
 </div>
 </div>
 

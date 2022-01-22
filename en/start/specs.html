@@ -1,11 +1,11 @@
 
 <!DOCTYPE html>
 
-<html lang="zh_CN">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>关于 &#8212; ck-book 0.1 文档</title>
+    <title>CK specs &#8212; ck-book 0.1 documentation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -79,7 +79,6 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="../_static/translations.js"></script>
     <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
@@ -92,12 +91,12 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
-    <link rel="index" title="索引" href="../genindex.html" />
-    <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="行为准则" href="../CODE_OF_CONDUCT.html" />
-    <link rel="prev" title="自动化 ML&amp;systems R&amp;D" href="../start/portable-workflows.html" /> 
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="自动化 ML&amp;systems R&amp;D" href="portable-workflows.html" />
+    <link rel="prev" title="CK CLI 和 API" href="commands.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="zh_CN">
+    <meta name="docsearch:language" content="en">
     
 
     <!-- Google Analytics -->
@@ -161,67 +160,67 @@ commentsRunWhenDOMLoaded(addUtterances);
       <img src="../_static/logo.jpg" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">ck-book 0.1 文档</h1>
+      <h1 class="site-logo" id="site-title">ck-book 0.1 documentation</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../start/index.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
    启动项目
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../start/intro.html">
+    <a class="reference internal" href="intro.html">
      简介
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../start/install.html">
+    <a class="reference internal" href="install.html">
      安装
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../start/first-steps.html">
+    <a class="reference internal" href="first-steps.html">
      尝试 CK
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../start/typical-usage.html">
+    <a class="reference internal" href="typical-usage.html">
      最常用的用法(待更)
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../start/commands.html">
+    <a class="reference internal" href="commands.html">
      CK CLI 和 API
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../start/specs.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      CK specs
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../start/portable-workflows.html">
+    <a class="reference internal" href="portable-workflows.html">
      自动化 ML&amp;systems R&amp;D
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
-   关于
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../about/index.html">
+   About
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
@@ -229,17 +228,17 @@ commentsRunWhenDOMLoaded(addUtterances);
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../CODE_OF_CONDUCT.html">
-     行为准则
+     Covenant Code of Conduct
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../CONTRIBUTING.html">
-     贡献
+     Contributing
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../SECURITY.html">
-     安全策略
+     Security Policy
     </a>
    </li>
    <li class="toctree-l2">
@@ -279,25 +278,25 @@ commentsRunWhenDOMLoaded(addUtterances);
             <div class="topbar-left">
                 
                 <label class="nav-toggle-button" for="__navigation">
-                    <div class="visually-hidden">切换导航</div>
+                    <div class="visually-hidden">Toggle navigation</div>
                     <i class="fas fa-bars"></i>
                 </label>
                 
             </div>
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/about/index.md.txt"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
+        <a class="dropdown-buttons" href="../_sources/start/specs.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
@@ -310,23 +309,23 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/xinetzone/ck-book"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源库"><i
-                    class="fab fa-github"></i>资料库</button></a>
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/ck-book/issues/new?title=Issue%20on%20page%20%2Fabout/index.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/ck-book/issues/new?title=Issue%20on%20page%20%2Fstart/specs.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/ck-book/edit/main/docs/about/index.md"><button
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/xinetzone/ck-book/edit/main/docs/start/specs.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
 </div>
 
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
@@ -336,6 +335,41 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ck">
+   CK 仓库
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     根文件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     根目录（CK 模块）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     CK 条目的子目录
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ck-entry">
+     CK entry
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -343,19 +377,120 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>关于</h1>
+                <h1>CK specs</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> 导航 </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ck">
+   CK 仓库
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     根文件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     根目录（CK 模块）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     CK 条目的子目录
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ck-entry">
+     CK entry
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>关于<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="toctree-wrapper compound">
+                 <div class="tex2jax_ignore mathjax_ignore section" id="ck-specs">
+<h1>CK specs<a class="headerlink" href="#ck-specs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ck">
+<h2>CK 仓库<a class="headerlink" href="#ck" title="Permalink to this headline">¶</a></h2>
+<p>这里描述一个 CK 存储库的结构。为了更好地理解这个结构，您可能需要查看 CK 库，比如 <a class="reference external" href="https://github.com/ctuning/ck-env">ck-env</a>。</p>
+<p>注意，当你使用 <a class="reference internal" href="commands.html"><span class="doc std std-doc">CK CLI 或 Python API</span></a> 时，CK 会自动创建这个结构。</p>
+<div class="section" id="id1">
+<h3>根文件<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">.ckr.json</span></code></dt><dd><p>该存储库的 JSON 元描述，包括 UID 和对其他存储库的依赖关系。这些信息中的大部分是在创建新的 CK 存储库时自动生成的。</p>
+</dd>
+</dl>
+<div class="highlight-Json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;data_alias&quot;: # repository name (alias) such as &quot;ck-env&quot;
+  &quot;data_name&quot;: # user-friendly repository name such as &quot;CK environment&quot;
+  &quot;data_uid&quot;: # CK UID for this repository (automatically generated)
+  &quot;data_uoa&quot;: # repository alias or repository UID if alias is empty
+  &quot;dict&quot;: {
+    &quot;desc&quot;: # user-friendly description of this repository
+    &quot;repo_deps&quot;: [
+      {
+        &quot;repo_uoa&quot;: # repository name
+        &quot;url&quot;: # Git URL of this repo
+      }
+      ...
+    ],
+    &quot;shared&quot;: # ==&quot;git&quot; if repository is shared
+    &quot;url&quot;: # Git URL of this repository
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>根目录（CK 模块）<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>CK 存储库的根可以包含任何子目录，以便用户逐步将他们的临时项目转换为 CK 格式。但是，如果一个目录与 CK 条目相关，它应该与一个相关的 CK 模块和 <code class="docutils literal notranslate"><span class="pre">.cm</span></code> 目录中的两个文件同名：</p>
+<ul class="simple">
+<li><p><em>CK module name</em></p></li>
+<li><p><em>.cm/alias-a-{CK module name}</em>：包含 CK 模块的 UID</p></li>
+<li><p><em>.cm/alias-u-{UID}</em>：包含 CK 模块名（别名）</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">.cm</span></code> 中的这两个文件帮助 CK 理解，在 CK 存储库中的给定目录与某些 CK 条目相关联！它们还支持通过 UID 或别名对给定的 CK 条目进行快速处理。</p>
+<p>然而，在将来，我们可能希望删除这些文件，并在 CK 提取存储库时执行自动索引(类似于Git)。看到<a class="reference external" href="https://github.com/mlcommons/ck/issues/118">这张票</a>。</p>
+</div>
+<div class="section" id="id3">
+<h3>CK 条目的子目录<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>如果 CK 存储库中的目录是一个有效的 CK 模块名，那么它可以包含与该 CK 模块相关联的 CK 条目。</p>
+<p>如果 CK 条目没有名称（别名），它将被存储为 CK UID（16 个十六进制小写字符）：</p>
+<ul class="simple">
+<li><p><em>UID</em>：一些工件的支架</p></li>
+</ul>
+<p>如果 CK 条目有名称（别名），则 <code class="docutils literal notranslate"><span class="pre">.cm</span></code> 中会有文件：</p>
+<ul class="simple">
+<li><p><em>CK entry name</em>：一些工件的支架</p></li>
+<li><p><em>.cm/alias-a-{CK entry name}</em> : 包含 CK 条目的 UID</p></li>
+<li><p><em>.cm/alias-u-{UID}</em> : 包含 CK 条目的名字（别名）</p></li>
+</ul>
+<p>同样，这些 <code class="docutils literal notranslate"><span class="pre">.cm</span></code> 文件允许 CK 通过 UID 和别名在所有 CK 存储库中快速查找 CK 条目，而不需要进行任何索引。</p>
+</div>
+<div class="section" id="ck-entry">
+<h3>CK entry<a class="headerlink" href="#ck-entry" title="Permalink to this headline">¶</a></h3>
+<p>每个有效的 CK 条目在 <code class="docutils literal notranslate"><span class="pre">.cm</span></code> 中至少有 3 个文件：</p>
+<ul class="simple">
+<li><p><em>.cm/meta.json</em> : 一个给定 CK 条目的 JSON 元描述</p></li>
+<li><p><em>.cm/info.json</em> : 给定 CK 条目的来源（创建日期、作者、版权、许可、CK 使用等）</p></li>
+<li><p><em>.cm/desc.json</em> : 元描述规格(开发中)</p></li>
+</ul>
+<p>这个条目还可以包含任何其他文件和目录（例如模型、数据集文件、算法、脚本、论文和任何其他工件）。</p>
+</div>
 </div>
 </div>
 
@@ -372,7 +507,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./about"
+            path: "./start"
         },
         predefinedOutput: true
     }
@@ -387,17 +522,17 @@ commentsRunWhenDOMLoaded(addUtterances);
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../start/portable-workflows.html" title="上一页 页">
+    <a class='left-prev' id="prev-link" href="commands.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
-            <p class="prev-next-subtitle">上一页</p>
-            <p class="prev-next-title">自动化 ML&amp;systems R&amp;D</p>
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">CK CLI 和 API</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../CODE_OF_CONDUCT.html" title="下一页 页">
+    <a class='right-next' id="next-link" href="portable-workflows.html" title="next page">
     <div class="prev-next-info">
-        <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">行为准则</p>
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">自动化 ML&amp;systems R&amp;D</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -408,9 +543,9 @@ commentsRunWhenDOMLoaded(addUtterances);
     <footer class="footer">
   <p>
     
-      通过 xinetzone<br/>
+      By xinetzone<br/>
     
-        &copy; 版权 2021, xinetzone.<br/>
+        &copy; Copyright 2021, xinetzone.<br/>
   </p>
 </footer>
 </main>

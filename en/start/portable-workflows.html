@@ -1,0 +1,732 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自动化 ML&amp;systems R&amp;D &#8212; ck-book 0.1 documentation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/ck-book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="About" href="../about/index.html" />
+    <link rel="prev" title="CK specs" href="specs.html" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../posts/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ck-book 0.1 documentation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   启动项目
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="intro.html">
+     简介
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="install.html">
+     安装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="first-steps.html">
+     尝试 CK
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="typical-usage.html">
+     最常用的用法(待更)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="commands.html">
+     CK CLI 和 API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="specs.html">
+     CK specs
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     自动化 ML&amp;systems R&amp;D
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../about/index.html">
+   About
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CODE_OF_CONDUCT.html">
+     Covenant Code of Conduct
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CONTRIBUTING.html">
+     Contributing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SECURITY.html">
+     Security Policy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CHANGELOG.html">
+     变更日志
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">Toggle navigation</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/start/portable-workflows.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/ck-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/ck-book/issues/new?title=Issue%20on%20page%20%2Fstart/portable-workflows.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/xinetzone/ck-book/edit/main/docs/start/portable-workflows.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   自动化 ML&amp;systems R&amp;D
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     平台及环境检测
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     软件检测
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     虚拟环境
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#meta">
+     Meta 包
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     脚本
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     可移植程序管道（工作流）
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     可再生的实验
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     仪表盘
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     互动的文章
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter">
+     Jupyter 笔记本
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker">
+     Docker
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   进一步信息
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>自动化 ML&systems R&D</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> 导航 </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   自动化 ML&amp;systems R&amp;D
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     平台及环境检测
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     软件检测
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     虚拟环境
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#meta">
+     Meta 包
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     脚本
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     可移植程序管道（工作流）
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     可再生的实验
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     仪表盘
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     互动的文章
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter">
+     Jupyter 笔记本
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker">
+     Docker
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id9">
+   进一步信息
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="ml-systems-r-d">
+<h1>自动化 ML&amp;systems R&amp;D<a class="headerlink" href="#ml-systems-r-d" title="Permalink to this headline">¶</a></h1>
+<p>在发布 CK 之后，我们开始与社区合作，逐步将 ML&amp;systems 研发中最常见和重复的任务<a class="reference external" href="introduction.md#how-ck-supports-collaborative-and-reproducible-mlsystems-research">自动化</a> （参见<a class="reference external" href="https://arxiv.org/pdf/2011.01149.pdf">期刊文章</a>和 <a class="reference external" href="https://doi.org/10.5281/zenodo.4005773">FastPath 的 20 次演示</a>）。</p>
+<p>我们开始使用统一的 API 和 I/O 添加以下 CK 模块和操作。</p>
+<div class="section" id="id1">
+<h2>平台及环境检测<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>这些 CK 模块自动化并统一了对用户平台和环境的不同属性的检测。</p>
+<ul class="simple">
+<li><p><em>module:os</em> [<a class="reference external" href="https://cknowledge.io/c/module/platform/#api">API</a>] [<a class="reference external" href="https://cKnowledge.io/c/os">components</a>]</p></li>
+<li><p><em>module:platform</em> [<a class="reference external" href="https://cknowledge.io/c/module/platform/#api">API</a>]</p></li>
+<li><p><em>module:platform.os</em> [<a class="reference external" href="https://cknowledge.io/c/module/platform.os/#api">API</a>]</p></li>
+<li><p><em>module:platform.cpu</em> [<a class="reference external" href="https://cknowledge.io/c/module/platform.cpu/#api">API</a>]</p></li>
+<li><p><em>module:platform.gpu</em> [<a class="reference external" href="https://cknowledge.io/c/module/platform.gpu/#api">API</a>]</p></li>
+<li><p><em>module:platform.gpgpu</em> [<a class="reference external" href="https://cknowledge.io/c/module/platform.gpgpu/#api">API</a>]</p></li>
+<li><p><em>module:platform.nn</em> [<a class="reference external" href="https://cknowledge.io/c/module/platform.nn/#api">API</a>]</p></li>
+</ul>
+<p>例子：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck pull repo:mlcommons@ck-mlops
+
+ck detect platform
+ck detect platform.gpgpu --cuda
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>软件检测<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>该 CK 模块使用 CK 名称、UID 和 tag，在给定的平台上自动检测给定的软件或文件（数据集、模型、库、编译器、框架、工具、脚本）：</p>
+<ul class="simple">
+<li><p><em>module:soft</em> [<a class="reference external" href="https://cknowledge.io/c/module/soft/#api">API</a>] [<a class="reference external" href="https://cKnowledge.io/c/soft">components</a>]</p></li>
+</ul>
+<p>它有助于理解用户平台和环境，以便准备可移植的工作流。</p>
+<p>例子：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck detect soft:compiler.python
+ck detect soft --tags<span class="o">=</span>compiler,python
+ck detect soft:compiler.llvm
+ck detect soft:compiler.llvm --target_os<span class="o">=</span>android23-arm64
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>虚拟环境<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><em>module:env</em> [<a class="reference external" href="https://cknowledge.io/c/module/env/#api">API</a>]</p></li>
+</ul>
+<p>每当使用软件检测插件找到一个给定的软件或文件时，CK 会在本地 CK 存储库中使用 <code class="docutils literal notranslate"><span class="pre">env.sh</span></code> (Linux/MacOS) 或 <code class="docutils literal notranslate"><span class="pre">env.bat</span></code> (Windows) 创建一个新的“env”组件。</p>
+<p>这个环境文件包含多个具有唯一名称的环境变量，通常从 <code class="docutils literal notranslate"><span class="pre">CK_</span></code> 开始，带有自动检测到的有关给定软件的信息，如版本和源文件路径、二进制文件、包含文件、库等。</p>
+<p>这允许您检测和使用不同软件的多个版本，这些版本可以轻松地并行地在您的系统上共存。</p>
+<p>例子：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck detect soft:compiler.python
+ck detect soft --tags<span class="o">=</span>compiler,python
+ck detect soft:compiler.llvm
+
+ck show env 
+ck show env --tags<span class="o">=</span>compiler
+ck show env --tags<span class="o">=</span>compiler,llvm
+ck show env --tags<span class="o">=</span>compiler,llvm --target_os<span class="o">=</span>android23-arm64
+
+ck virtual env --tags<span class="o">=</span>compiler,python
+</pre></div>
+</div>
+</div>
+<div class="section" id="meta">
+<h2>Meta 包<a class="headerlink" href="#meta" title="Permalink to this headline">¶</a></h2>
+<p>当一个给定的软件在我们的系统上没有被检测到时，我们通常希望安装不同版本的相关包。</p>
+<p>这就是为什么我们开发了以下 CK 模块，可以自动安装缺少的包（模型、数据集、工具、框架、编译器等）：</p>
+<ul class="simple">
+<li><p><em>module:package</em> [<a class="reference external" href="https://cknowledge.io/c/module/package/#api">API</a>] [<a class="reference external" href="https://cKnowledge.io/c/package">components</a>]</p></li>
+</ul>
+<p>这是一个元包管理器，它提供了一个统一的 API，可以使用现有的构建工具和包管理器为给定的目标(包括移动和边缘设备)自动下载、构建和安装包。</p>
+<p>以上所有模块现在都可以支持可移植的工作流，这些工作流可以自动适应基于<a class="reference external" href="https://cknowledge.io/solution/demo-obj-detection-coco-tf-cpu-benchmark-linux-portable-workflows/#dependencies">软依赖</a>的给定环境。</p>
+<p>例子：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck install package --tags<span class="o">=</span>lib,tflite,v2.1.1
+ck install package --tags<span class="o">=</span>tensorflowmodel,tflite,edgetpu
+</pre></div>
+</div>
+<p>请参阅定制给定包的变体示例：<a class="reference external" href="https://github.com/ctuning/ck-tensorflow/tree/master/package/lib-tflite">lib-tflite</a>。</p>
+</div>
+<div class="section" id="id4">
+<h2>脚本<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>我们还为 ad-hoc 脚本提供了一个抽象：</p>
+<ul class="simple">
+<li><p><em>module:script</em> [<a class="reference external" href="https://cknowledge.io/c/module/script/#api">API</a>] [<a class="reference external" href="https://cKnowledge.io/c/script">components</a>]</p></li>
+</ul>
+<p>请参阅一个 CK 组件的例子，它带有一个用于提交 MLPerf™ 基准测试的脚本：<a class="reference external" href="https://github.com/ctuning/ck-mlperf/tree/master/script/mlperf-inference-v0.7.image-classification">GitHub</a>。</p>
+</div>
+<div class="section" id="id5">
+<h2>可移植程序管道（工作流）<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>接下来，我们实现了一个 CK 模块，提供了一个通用 API 来编译、运行和验证程序，同时自动适应任何平台和环境：</p>
+<ul class="simple">
+<li><p><em>module:program</em> [<a class="reference external" href="https://cknowledge.io/c/module/program/#api">API</a>] [<a class="reference external" href="https://cKnowledge.io/c/program">components</a>]</p></li>
+</ul>
+<p>用户描述 CK 程序元数据中 CK 包的依赖关系，以及构建、预处理、运行、后处理和验证给定程序的命令。</p>
+<p>例子：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck pull repo:mlcommons@ck-mlops
+
+ck compile program:image-corner-detection --speed
+ck run program:image-corner-detection --repeat<span class="o">=</span><span class="m">1</span> --env.OMP_NUM_THREADS<span class="o">=</span><span class="m">4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>可再生的实验<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>我们开发了一个抽象来 record 和 reply 实验，使用下面的 CK 模块：</p>
+<ul class="simple">
+<li><p><em>module:experiment</em> [<a class="reference external" href="https://cknowledge.io/c/module/experiment/#api">API</a>] [<a class="reference external" href="https://cKnowledge.io/c/experiment">components</a>]</p></li>
+</ul>
+<p>当运行 CK 程序时，该模块记录所有已解析的依赖关系、输入和输出，从而允许保存所有来源的实验，并稍后在相同或不同的机器上重播它们：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck benchmark program:image-corner-detection --record --record_uoa<span class="o">=</span>my_experiment
+
+ck find experiment:my_experiment
+
+ck replay experiment:my_experiment
+
+ck zip experiment:my_experiment
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>仪表盘<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>既然我们可以统一地记录所有的实验，我们也可以统一地将它们可视化。这就是为什么我们开发了一个简单的 web 服务器，可以帮助创建可定制的仪表盘：</p>
+<ul class="simple">
+<li><p><em>module:web</em> [<a class="reference external" href="https://cknowledge.io/c/module/web/#api">API</a>]</p></li>
+</ul>
+<p>查看此类仪表板的示例：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cKnowledge.io/reproduced-results">view online at cKnowledge.io platform</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ctuning/ck-mlperf/tree/master/docker/image-classification-tflite.dashboard.ubuntu-18.04">view locally (with or without Docker)</a></p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>互动的文章<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>我们 CK 的目标之一是自动化（重新）生成可复制的文章。我们已经在树莓派基金会的这个概念验证项目中<a class="reference external" href="https://cKnowledge.org/rpi-crowd-tuning">验证了这种可能性</a>。</p>
+<p>我们计划开发一个 GUI，以使生成这样的论文的过程更友好的用户！</p>
+</div>
+<div class="section" id="jupyter">
+<h2>Jupyter 笔记本<a class="headerlink" href="#jupyter" title="Permalink to this headline">¶</a></h2>
+<p>从 Jupyter 和 Colab 笔记本中使用 CK 是可能的。我们提供了一个抽象来在 CK 库中共享 Jupyter 笔记本：</p>
+<ul class="simple">
+<li><p><em>module:jnotebook</em> [<a class="reference external" href="https://cknowledge.io/c/module/jnotebook/#api">API</a>] [<a class="reference external" href="https://cKnowledge.io/c/jnotebook">components</a>]</p></li>
+</ul>
+<p>您可以在这里看到一个使用 CK 命令处理 MLPerf™ 基准测试结果的 <a class="reference external" href="https://nbviewer.jupyter.org/urls/dl.dropbox.com/s/5yqb6fy1nbywi7x/medium-object-detection.20190923.ipynb">Jupyter 笔记本示例</a>。</p>
+</div>
+<div class="section" id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
+<p>我们提供了一个抽象来构建、pull 和运行 Docker 映像：</p>
+<ul class="simple">
+<li><p><em>module:docker</em> [<a class="reference external" href="https://cknowledge.io/c/module/docker/#api">API</a>] [<a class="reference external" href="https://cKnowledge.io/c/docker">components</a>]</p></li>
+</ul>
+<p>你可以在这里看到 <a class="reference external" href="https://github.com/ctuning/ck-mlperf/tree/master/docker">Docker 映像的例子</a>，使用统一的 CK 命令来自动化 MLPerf™ 基准测试。</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id9">
+<h1>进一步信息<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h1>
+<p>在过去的几年里，我们将所有的工作流程和组件从我们过去的 ML&amp;systems 研发，包括迈立普和 <a class="reference external" href="https://github.com/ctuning/reproduce-milepost-project">cTuning.org 项目</a> 转换为 CK 格式。</p>
+<p>目前 ML&amp;systems 研发中有 <a class="reference external" href="https://cKnowledge.io/modules">150+ 具有操作自动化</a> 的 CK 模块，可以自动抽取许多繁琐重复的任务，包括模型训练与预测、通用自动调优、ML/SW/HW 协同设计、模型测试与部署、论文生成等：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cknowledge.org/high-level-overview.pdf">可移植 CK 工作流的高级概述</a></p></li>
+<li><p><a class="reference external" href="https://cKnowledge.org/report/rpi3-crowd-tuning-2017-interactive">多目标自动调优和机器学习技术协同研究的集体知识工作流（与树莓派基金会合作）</a></p></li>
+<li><p><a class="reference external" href="https://cKnowledge.org/partners.html">与学术和工业合作伙伴的主要基于 CK 的项目总结</a></p></li>
+<li><p><a class="reference external" href="https://cKnowledge.io/docs">cKnowledge.io 平台文档</a></p></li>
+</ul>
+<p>如果您有任何反馈或想了解更多关于我们的计划，请不要犹豫<a class="reference external" href="https://cKnowledge.org/contacts.html">联系我们</a>！</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/ck-book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./start"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section">
+   
+</div>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="specs.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">CK specs</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../about/index.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">About</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By xinetzone<br/>
+    
+        &copy; Copyright 2021, xinetzone.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

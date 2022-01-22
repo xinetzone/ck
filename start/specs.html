@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>启动项目 &#8212; ck-book 0.1 文档</title>
+    <title>CK specs &#8212; ck-book 0.1 文档</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -94,8 +94,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="搜索" href="../search.html" />
-    <link rel="next" title="简介" href="intro.html" />
-    <link rel="prev" title="通用 AI 平台" href="../index.html" /> 
+    <link rel="next" title="自动化 ML&amp;systems R&amp;D" href="portable-workflows.html" />
+    <link rel="prev" title="CK CLI 和 API" href="commands.html" /> 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="zh_CN">
     
@@ -171,7 +171,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="index.html">
    启动项目
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -179,7 +179,7 @@ commentsRunWhenDOMLoaded(addUtterances);
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="intro.html">
      简介
@@ -205,8 +205,8 @@ commentsRunWhenDOMLoaded(addUtterances);
      CK CLI 和 API
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="specs.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      CK specs
     </a>
    </li>
@@ -293,7 +293,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/start/index.md.txt"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/start/specs.md.txt"><button type="button"
                 class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -313,10 +313,10 @@ commentsRunWhenDOMLoaded(addUtterances);
                 data-toggle="tooltip" data-placement="left" title="源库"><i
                     class="fab fa-github"></i>资料库</button></a>
         <a class="issues-button"
-            href="https://github.com/xinetzone/ck-book/issues/new?title=Issue%20on%20page%20%2Fstart/index.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/xinetzone/ck-book/issues/new?title=Issue%20on%20page%20%2Fstart/specs.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
-        <a class="edit-button" href="https://github.com/xinetzone/ck-book/edit/main/docs/start/index.md"><button
+        <a class="edit-button" href="https://github.com/xinetzone/ck-book/edit/main/docs/start/specs.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -336,6 +336,41 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ck">
+   CK 仓库
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     根文件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     根目录（CK 模块）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     CK 条目的子目录
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ck-entry">
+     CK entry
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -343,131 +378,120 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>启动项目</h1>
+                <h1>CK specs</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> 导航 </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ck">
+   CK 仓库
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     根文件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     根目录（CK 模块）
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     CK 条目的子目录
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ck-entry">
+     CK entry
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
-                 <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>启动项目<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="intro.html">简介</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="intro.html#ck">CK 平台</a></li>
-<li class="toctree-l2"><a class="reference internal" href="intro.html#ml-systems-r-d-ck">为 ML&amp;systems R&amp;D 提供 CK 驱动的工作流、自动化操作和可重用工件</a></li>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="ck-specs">
+<h1>CK specs<a class="headerlink" href="#ck-specs" title="永久链接至标题">¶</a></h1>
+<div class="section" id="ck">
+<h2>CK 仓库<a class="headerlink" href="#ck" title="永久链接至标题">¶</a></h2>
+<p>这里描述一个 CK 存储库的结构。为了更好地理解这个结构，您可能需要查看 CK 库，比如 <a class="reference external" href="https://github.com/ctuning/ck-env">ck-env</a>。</p>
+<p>注意，当你使用 <a class="reference internal" href="commands.html"><span class="doc std std-doc">CK CLI 或 Python API</span></a> 时，CK 会自动创建这个结构。</p>
+<div class="section" id="id1">
+<h3>根文件<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<dl class="simple myst">
+<dt><code class="docutils literal notranslate"><span class="pre">.ckr.json</span></code></dt><dd><p>该存储库的 JSON 元描述，包括 UID 和对其他存储库的依赖关系。这些信息中的大部分是在创建新的 CK 存储库时自动生成的。</p>
+</dd>
+</dl>
+<div class="highlight-Json notranslate"><div class="highlight"><pre><span></span>{
+  &quot;data_alias&quot;: # repository name (alias) such as &quot;ck-env&quot;
+  &quot;data_name&quot;: # user-friendly repository name such as &quot;CK environment&quot;
+  &quot;data_uid&quot;: # CK UID for this repository (automatically generated)
+  &quot;data_uoa&quot;: # repository alias or repository UID if alias is empty
+  &quot;dict&quot;: {
+    &quot;desc&quot;: # user-friendly description of this repository
+    &quot;repo_deps&quot;: [
+      {
+        &quot;repo_uoa&quot;: # repository name
+        &quot;url&quot;: # Git URL of this repo
+      }
+      ...
+    ],
+    &quot;shared&quot;: # ==&quot;git&quot; if repository is shared
+    &quot;url&quot;: # Git URL of this repository
+  }
+}
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>根目录（CK 模块）<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>CK 存储库的根可以包含任何子目录，以便用户逐步将他们的临时项目转换为 CK 格式。但是，如果一个目录与 CK 条目相关，它应该与一个相关的 CK 模块和 <code class="docutils literal notranslate"><span class="pre">.cm</span></code> 目录中的两个文件同名：</p>
+<ul class="simple">
+<li><p><em>CK module name</em></p></li>
+<li><p><em>.cm/alias-a-{CK module name}</em>：包含 CK 模块的 UID</p></li>
+<li><p><em>.cm/alias-u-{UID}</em>：包含 CK 模块名（别名）</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="install.html">安装</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="install.html#id2">准备</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#ck">CK 安装</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#docker">Docker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#id3">带有模板的虚拟 CK 环境</a></li>
-<li class="toctree-l2"><a class="reference internal" href="install.html#id4">自定义</a></li>
+<p><code class="docutils literal notranslate"><span class="pre">.cm</span></code> 中的这两个文件帮助 CK 理解，在 CK 存储库中的给定目录与某些 CK 条目相关联！它们还支持通过 UID 或别名对给定的 CK 条目进行快速处理。</p>
+<p>然而，在将来，我们可能希望删除这些文件，并在 CK 提取存储库时执行自动索引(类似于Git)。看到<a class="reference external" href="https://github.com/mlcommons/ck/issues/118">这张票</a>。</p>
+</div>
+<div class="section" id="id3">
+<h3>CK 条目的子目录<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>如果 CK 存储库中的目录是一个有效的 CK 模块名，那么它可以包含与该 CK 模块相关联的 CK 条目。</p>
+<p>如果 CK 条目没有名称（别名），它将被存储为 CK UID（16 个十六进制小写字符）：</p>
+<ul class="simple">
+<li><p><em>UID</em>：一些工件的支架</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="first-steps.html">尝试 CK</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="first-steps.html#pull-ck">Pull CK 库与通用程序工作流</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-steps.html#id1">管理 CK 条目</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-steps.html#id2">调用 CK 自动化操作</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-steps.html#id3">安装丢失的包</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-steps.html#crowd-tuning">参与 crowd-tuning</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-steps.html#ck-python-api">使用 CK python API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-steps.html#ck-mlperf">尝试 CK MLPerf™ 工作流</a></li>
-<li class="toctree-l2"><a class="reference internal" href="first-steps.html#id4">进一步的信息</a></li>
+<p>如果 CK 条目有名称（别名），则 <code class="docutils literal notranslate"><span class="pre">.cm</span></code> 中会有文件：</p>
+<ul class="simple">
+<li><p><em>CK entry name</em>：一些工件的支架</p></li>
+<li><p><em>.cm/alias-a-{CK entry name}</em> : 包含 CK 条目的 UID</p></li>
+<li><p><em>.cm/alias-u-{UID}</em> : 包含 CK 条目的名字（别名）</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="typical-usage.html">最常用的用法(待更)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="typical-usage.html#ck">新建 CK 存储库</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="typical-usage.html#id2">添加依赖</a></li>
-<li class="toctree-l3"><a class="reference internal" href="typical-usage.html#id3">添加新的程序工作流</a></li>
-<li class="toctree-l3"><a class="reference internal" href="typical-usage.html#id4">更新程序源代码</a></li>
+<p>同样，这些 <code class="docutils literal notranslate"><span class="pre">.cm</span></code> 文件允许 CK 通过 UID 和别名在所有 CK 存储库中快速查找 CK 条目，而不需要进行任何索引。</p>
+</div>
+<div class="section" id="ck-entry">
+<h3>CK entry<a class="headerlink" href="#ck-entry" title="永久链接至标题">¶</a></h3>
+<p>每个有效的 CK 条目在 <code class="docutils literal notranslate"><span class="pre">.cm</span></code> 中至少有 3 个文件：</p>
+<ul class="simple">
+<li><p><em>.cm/meta.json</em> : 一个给定 CK 条目的 JSON 元描述</p></li>
+<li><p><em>.cm/info.json</em> : 给定 CK 条目的来源（创建日期、作者、版权、许可、CK 使用等）</p></li>
+<li><p><em>.cm/desc.json</em> : 元描述规格(开发中)</p></li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="typical-usage.html#id5">更新软件依赖</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typical-usage.html#id6">重用或添加基本数据集</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typical-usage.html#id7">添加新的 CK 软件检测插件</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typical-usage.html#add-new-ck-packages">Add new CK packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typical-usage.html#pack-ck-repository">Pack CK repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typical-usage.html#prepare-ck-repository-for-digital-libraries">Prepare CK repository for Digital Libraries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typical-usage.html#prepare-a-docker-container-with-ck-workflows">Prepare a Docker container with CK workflows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typical-usage.html#create-more-complex-workflows">Create more complex workflows</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="typical-usage.html#using-shell-scripts">Using shell scripts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="typical-usage.html#using-ck-modules">Using CK modules</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="typical-usage.html#generate-reproducible-and-interactive-articles">Generate reproducible and interactive articles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typical-usage.html#publish-ck-repositories-workflows-and-components">Publish CK repositories, workflows, and components</a></li>
-<li class="toctree-l2"><a class="reference internal" href="typical-usage.html#contact-the-ck-community">Contact the CK community</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="commands.html">CK CLI 和 API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="commands.html#cli-ck">通过 CLI 管理 CK 存储库</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#ck">在当前路径初始化新的 CK 存储库</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#git-url">使用 Git URL 获取现有的存储库</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#ctuning-github">从 cTuning GitHub 拉现有的存储库</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#zip">以 zip 文件的形式下载存储库</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#git-ck">从 Git 更新所有本地 CK 库</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#id1">在本地创建一个虚拟 CK 存储库</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#id2">从当前目录导入现有的本地存储库</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#id3">从本地目录导入现有的本地存储库</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#id4">列出本地 CK 库</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#id5">删除给定的 CK 存储库</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#id6">找到到给定 CK 存储库的路径</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#ck-zip">将给定的 CK 存储库打包为 zip 文件</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#zip-ck-ck">将 zip 文件中的 CK 条目添加到现有的 CK 存储库</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="commands.html#id7">通过 CLI 管理 CK 条目</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#ck-ck">列出所有本地 CK 库中的 CK 模块</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#id8">从所有本地 CK 存储库列出一些带有通配符的 CK 模块</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#id9">在给定的存储库中列出给定 CK 模块的 CK 条目</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#id10">通过标签搜索 CK 条目</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#id11">通过字符串搜索 CK 条目</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#id12">查找到给定 CK 条目的路径</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#json">显示一个给定条目的 JSON 元描述</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#delete-a-given-ck-entry">Delete a given CK entry</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#create-an-empty-ck-entry">Create an empty CK entry</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#rename-a-given-ck-entry">Rename a given CK entry</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#move-a-given-ck-entry-to-another-ck-repository">Move a given CK entry to another CK repository</a></li>
-<li class="toctree-l3"><a class="reference internal" href="commands.html#copy-a-given-ck-entry">Copy a given CK entry</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="commands.html#id13">CLI 管理 CK 操作</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands.html#ck-python-api">CK Python API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="commands.html#id14">更多资源</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="specs.html">CK specs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="specs.html#ck">CK 仓库</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="specs.html#id1">根文件</a></li>
-<li class="toctree-l3"><a class="reference internal" href="specs.html#id2">根目录（CK 模块）</a></li>
-<li class="toctree-l3"><a class="reference internal" href="specs.html#id3">CK 条目的子目录</a></li>
-<li class="toctree-l3"><a class="reference internal" href="specs.html#ck-entry">CK entry</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="portable-workflows.html">自动化 ML&amp;systems R&amp;D</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="portable-workflows.html#id1">平台及环境检测</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portable-workflows.html#id2">软件检测</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portable-workflows.html#id3">虚拟环境</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portable-workflows.html#meta">Meta 包</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portable-workflows.html#id4">脚本</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portable-workflows.html#id5">可移植程序管道（工作流）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portable-workflows.html#id6">可再生的实验</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portable-workflows.html#id7">仪表盘</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portable-workflows.html#id8">互动的文章</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portable-workflows.html#jupyter">Jupyter 笔记本</a></li>
-<li class="toctree-l2"><a class="reference internal" href="portable-workflows.html#docker">Docker</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="portable-workflows.html#id9">进一步信息</a></li>
-</ul>
+<p>这个条目还可以包含任何其他文件和目录（例如模型、数据集文件、算法、脚本、论文和任何其他工件）。</p>
+</div>
 </div>
 </div>
 
@@ -499,17 +523,17 @@ commentsRunWhenDOMLoaded(addUtterances);
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../index.html" title="上一页 页">
+    <a class='left-prev' id="prev-link" href="commands.html" title="上一页 页">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">上一页</p>
-            <p class="prev-next-title">通用 AI 平台</p>
+            <p class="prev-next-title">CK CLI 和 API</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="intro.html" title="下一页 页">
+    <a class='right-next' id="next-link" href="portable-workflows.html" title="下一页 页">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">下一页</p>
-        <p class="prev-next-title">简介</p>
+        <p class="prev-next-title">自动化 ML&amp;systems R&amp;D</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

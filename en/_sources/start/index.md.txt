@@ -8,4 +8,6 @@ install
 first-steps
 typical-usage
 commands
+specs
+portable-workflows
 ```
