@@ -1,0 +1,1279 @@
+
+<!DOCTYPE html>
+
+<html lang="zh_CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CK CLI 和 API &#8212; ck-book 0.1 文档</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=84ace793992934648b4de8eed757e5a2" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/default.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/tabs.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "xinetzone/ck-book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../_static/translations.js"></script>
+    <script src="../_static/sphinx-book-theme.9d8b4a8b9bb19db25eeaddc40d639ba2.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".cell"
+        const thebe_selector_input = ".cell_input div.highlight"
+        const thebe_selector_output = ".cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="shortcut icon" href="../_static/page-logo.jfif"/>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="关于" href="../about/index.html" />
+    <link rel="prev" title="最常用的用法(待更)" href="typical-usage.html" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="zh_CN">
+    
+
+    <!-- Google Analytics -->
+     
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../posts/atom.xml"
+  title="Blog"
+/>
+ 
+<style type="text/css">
+  ul.ablog-archive {
+    list-style: none;
+    overflow: auto;
+    margin-left: 0px;
+  }
+  ul.ablog-archive li {
+    float: left;
+    margin-right: 5px;
+    font-size: 80%;
+  }
+  ul.postlist a {
+    font-style: italic;
+  }
+  ul.postlist-style-disc {
+    list-style-type: disc;
+  }
+  ul.postlist-style-none {
+    list-style-type: none;
+  }
+  ul.postlist-style-circle {
+    list-style-type: circle;
+  }
+</style>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<div class="col-12 col-md-3 bd-sidebar site-navigation " id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ck-book 0.1 文档</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索文档..." aria-label="搜索文档..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="index.html">
+   启动项目
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="intro.html">
+     简介
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="install.html">
+     安装
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="first-steps.html">
+     尝试 CK
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="typical-usage.html">
+     最常用的用法(待更)
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     CK CLI 和 API
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../about/index.html">
+   关于
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CODE_OF_CONDUCT.html">
+     行为准则
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CONTRIBUTING.html">
+     贡献
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../SECURITY.html">
+     安全策略
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../CHANGELOG.html">
+     变更日志
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div>
+版权所有 © 2021 <a href="https://xinetzone.github.io/">xinetzone</a></div>
+<div>由 <a href="https://ebp.jupyterbook.org/">EBP</a> 提供技术支持</div>
+
+</div>
+
+</div>
+
+
+          
+
+
+          
+<!-- This is an invisible pixel that we watch to see if we've scrolled. -->
+<div class="sbt-scroll-pixel-helper"></div>
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            <div class="topbar-left">
+                
+                <label class="nav-toggle-button" for="__navigation">
+                    <div class="visually-hidden">切换导航</div>
+                    <i class="fas fa-bars"></i>
+                </label>
+                
+            </div>
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下载此页面"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/start/commands.md.txt"><button type="button"
+                class="btn btn-secondary topbarbtn" title="下载源文件" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/xinetzone/ck-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="源库"><i
+                    class="fab fa-github"></i>资料库</button></a>
+        <a class="issues-button"
+            href="https://github.com/xinetzone/ck-book/issues/new?title=Issue%20on%20page%20%2Fstart/commands.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="打开一个问题"><i class="fas fa-lightbulb"></i>公开的问题</button></a>
+        <a class="edit-button" href="https://github.com/xinetzone/ck-book/edit/main/docs/start/commands.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="编辑这个页面"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
+        title="全屏模式"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> 导航
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-ck">
+   通过 CLI 管理 CK 存储库
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ck">
+     在当前路径初始化新的 CK 存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-url">
+     使用 Git URL 获取现有的存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ctuning-github">
+     从 cTuning GitHub 拉现有的存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zip">
+     以 zip 文件的形式下载存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-ck">
+     从 Git 更新所有本地 CK 库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     在本地创建一个虚拟 CK 存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     从当前目录导入现有的本地存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     从本地目录导入现有的本地存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     列出本地 CK 库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     删除给定的 CK 存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     找到到给定 CK 存储库的路径
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ck-zip">
+     将给定的 CK 存储库打包为 zip 文件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zip-ck-ck">
+     将 zip 文件中的 CK 条目添加到现有的 CK 存储库
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   通过 CLI 管理 CK 条目
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ck-ck">
+     列出所有本地 CK 库中的 CK 模块
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     从所有本地 CK 存储库列出一些带有通配符的 CK 模块
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     在给定的存储库中列出给定 CK 模块的 CK 条目
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     通过标签搜索 CK 条目
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     通过字符串搜索 CK 条目
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     查找到给定 CK 条目的路径
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#json">
+     显示一个给定条目的 JSON 元描述
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#delete-a-given-ck-entry">
+     Delete a given CK entry
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-an-empty-ck-entry">
+     Create an empty CK entry
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rename-a-given-ck-entry">
+     Rename a given CK entry
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#move-a-given-ck-entry-to-another-ck-repository">
+     Move a given CK entry to another CK repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copy-a-given-ck-entry">
+     Copy a given CK entry
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-to-manage-ck-actions">
+   CLI to manage CK actions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ck-python-api">
+   CK Python API
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id13">
+   更多资源
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>CK CLI 和 API</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> 导航 </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-ck">
+   通过 CLI 管理 CK 存储库
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ck">
+     在当前路径初始化新的 CK 存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-url">
+     使用 Git URL 获取现有的存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ctuning-github">
+     从 cTuning GitHub 拉现有的存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zip">
+     以 zip 文件的形式下载存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-ck">
+     从 Git 更新所有本地 CK 库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     在本地创建一个虚拟 CK 存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     从当前目录导入现有的本地存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     从本地目录导入现有的本地存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     列出本地 CK 库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     删除给定的 CK 存储库
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     找到到给定 CK 存储库的路径
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ck-zip">
+     将给定的 CK 存储库打包为 zip 文件
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zip-ck-ck">
+     将 zip 文件中的 CK 条目添加到现有的 CK 存储库
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id7">
+   通过 CLI 管理 CK 条目
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ck-ck">
+     列出所有本地 CK 库中的 CK 模块
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     从所有本地 CK 存储库列出一些带有通配符的 CK 模块
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     在给定的存储库中列出给定 CK 模块的 CK 条目
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     通过标签搜索 CK 条目
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     通过字符串搜索 CK 条目
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     查找到给定 CK 条目的路径
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#json">
+     显示一个给定条目的 JSON 元描述
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#delete-a-given-ck-entry">
+     Delete a given CK entry
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-an-empty-ck-entry">
+     Create an empty CK entry
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rename-a-given-ck-entry">
+     Rename a given CK entry
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#move-a-given-ck-entry-to-another-ck-repository">
+     Move a given CK entry to another CK repository
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#copy-a-given-ck-entry">
+     Copy a given CK entry
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cli-to-manage-ck-actions">
+   CLI to manage CK actions
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ck-python-api">
+   CK Python API
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id13">
+   更多资源
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                 <div class="tex2jax_ignore mathjax_ignore section" id="ck-cli-api">
+<h1>CK CLI 和 API<a class="headerlink" href="#ck-cli-api" title="永久链接至标题">¶</a></h1>
+<p>大多数 CK 功能都是使用带有 <a class="reference external" href="https://cknowledge.io/actions">自动化操作</a> 和相关 <a class="reference external" href="https://cknowledge.io/browse">CK 条目（组件）</a> 的 <a class="reference external" href="https://cknowledge.io/modules">CK 模块</a> 实现的。</p>
+<p>这里我们描述了 CK 用于管理存储库、模块和操作的主要功能。记住，你可以在命令行中看到给定自动化操作的所有旗标，如下所示：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck <span class="o">{</span>action<span class="o">}</span> <span class="o">{</span>CK module<span class="o">}</span> --help
+</pre></div>
+</div>
+<p>您可以为自动化操作设置任意键的值，如下所示：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck <span class="o">{</span>action<span class="o">}</span> ... <span class="nv">key</span><span class="o">=</span>value
+ck <span class="o">{</span>action<span class="o">}</span> ... -key<span class="o">=</span>value
+ck <span class="o">{</span>action<span class="o">}</span> ... --key<span class="o">=</span>value
+ck <span class="o">{</span>action<span class="o">}</span> ... --key<span class="o">=</span>value
+</pre></div>
+</div>
+<p>如果忽略该值，CK 将使用 “yes” 字符串。</p>
+<p>你也可以使用 JSON 或 YAML 文件作为给定操作的输入：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck <span class="o">{</span>action<span class="o">}</span> ... @input.json
+ck <span class="o">{</span>action<span class="o">}</span> ... @input.yaml
+</pre></div>
+</div>
+<div class="section" id="cli-ck">
+<h2>通过 CLI 管理 CK 存储库<a class="headerlink" href="#cli-ck" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>自动化操作是使用内部的 CK 模块 <a class="reference external" href="https://cknowledge.io/c/module/repo">repo</a> 实现的。</p></li>
+<li><p>在 <a class="reference external" href="https://cknowledge.io/c/module/repo/#api">cKnowledge.io 平台</a> 查看所有自动化操作及其 API 的列表。</p></li>
+</ul>
+<div class="section" id="ck">
+<h3>在当前路径初始化新的 CK 存储库<a class="headerlink" href="#ck" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck init repo
+</pre></div>
+</div>
+<p>CK 会询问用户的 repo 名称，也会尝试从 <code class="docutils literal notranslate"><span class="pre">.git/config</span></code> 检测 Git URL。</p>
+<p>额外的选项：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck init repo:<span class="o">{</span>CK repo name<span class="o">}</span>
+ck init repo --url<span class="o">={</span>Git URL with the CK repository<span class="o">}</span>
+ck init repo --url<span class="o">={</span>Git URL with the CK repository<span class="o">}</span> --deps<span class="o">={</span>list of CK repos<span class="o">}</span>
+</pre></div>
+</div>
+<p>例子：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck init repo:asplos21-artifact123 --url<span class="o">=</span>https://github.com/ctuning/ck-asplos21-artifact123 --deps<span class="o">=</span>ck-autotuning
+ck init repo:mlperf-submission --url<span class="o">=</span>https://github.com/ctuning/ck-mlperf-submission321 --deps<span class="o">=</span>ck-mlperf
+</pre></div>
+</div>
+</div>
+<div class="section" id="git-url">
+<h3>使用 Git URL 获取现有的存储库<a class="headerlink" href="#git-url" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck pull repo --url<span class="o">={</span>Git URL with the CK repository<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ctuning-github">
+<h3>从 cTuning GitHub 拉现有的存储库<a class="headerlink" href="#ctuning-github" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck pull repo:<span class="o">{</span>CK repo name<span class="o">}</span>
+</pre></div>
+</div>
+<p>在本例中，CK 将使用 <code class="docutils literal notranslate"><span class="pre">https://github.com/ctuning/{CK</span> <span class="pre">repo</span> <span class="pre">name}</span></code></p>
+</div>
+<div class="section" id="zip">
+<h3>以 zip 文件的形式下载存储库<a class="headerlink" href="#zip" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck add repo --zip<span class="o">={</span>URL to the zip file with the CK repository<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="git-ck">
+<h3>从 Git 更新所有本地 CK 库<a class="headerlink" href="#git-ck" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck pull all
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>在本地创建一个虚拟 CK 存储库<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h3>
+<p>快速模式与最小的问题：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck add repo:<span class="o">{</span>user-friendly name<span class="o">}</span> --quiet
+</pre></div>
+</div>
+<p>高级模式与许多问题配置存储库：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck add repo:<span class="o">{</span>user-friendly name<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>从当前目录导入现有的本地存储库<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck import repo --quiet
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>从本地目录导入现有的本地存储库<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck import repo --path<span class="o">={</span>full path to the <span class="nb">local</span> CK repository<span class="o">}</span> --quiet 
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>列出本地 CK 库<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck ls repo
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck list repo
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>删除给定的 CK 存储库<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>取消注册 CK 仓库，但不要删除内容（你可以稍后再次导入它，以重用自动化操作和组件）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck rm repo:<span class="o">{</span>CK repo name from above list<span class="o">}</span>
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck remove repo:<span class="o">{</span>CK repo name from above list<span class="o">}</span>
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck delete repo:<span class="o">{</span>CK repo name from above list<span class="o">}</span>
+</pre></div>
+</div>
+<p>完全删除 CK 存储库的内容：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck rm repo:<span class="o">{</span>CK repo name from above list<span class="o">}</span> --all
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>找到到给定 CK 存储库的路径<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck where repo:<span class="o">{</span>CK repo name<span class="o">}</span>
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck find repo:<span class="o">{</span>CK repo name<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ck-zip">
+<h3>将给定的 CK 存储库打包为 zip 文件<a class="headerlink" href="#ck-zip" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck zip repo:<span class="o">{</span>CK repo name<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="zip-ck-ck">
+<h3>将 zip 文件中的 CK 条目添加到现有的 CK 存储库<a class="headerlink" href="#zip-ck-ck" title="永久链接至标题">¶</a></h3>
+<p>到本地存储库：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck unzip repo:<span class="o">{</span>CK repo name<span class="o">}</span> --zip<span class="o">={</span>path to a zip file with the CK repo<span class="o">}</span>
+</pre></div>
+</div>
+<p>到给定的存储库：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck unzip repo:<span class="o">{</span>CK repo name<span class="o">}</span> --zip<span class="o">={</span>path to a zip file with the CK repo<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>通过 CLI 管理 CK 条目<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>CK 库基本上是一个 CK 模块和条目的数据库。管理 CK 条目的 CK 内部命令如下：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck <span class="nb">help</span>
+</pre></div>
+</div>
+<p>CID 是以下格式的 Collective 标识符：</p>
+<ul class="simple">
+<li><p>{CK module name or UID}:{CK entry name or UID}</p></li>
+<li><p>{CK repo name or UID}:{CK module name or UID}:{CK entry name or UID}</p></li>
+</ul>
+<p>请注意，在适当的时候，CID 允许通配符！</p>
+<p>下面是管理 CK 模块和表项最常用的命令。</p>
+<div class="section" id="ck-ck">
+<h3>列出所有本地 CK 库中的 CK 模块<a class="headerlink" href="#ck-ck" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck ls module
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck list module
+</pre></div>
+</div>
+<p>显示完整的 CID（repository:module:entry）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck ls module --all
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>从所有本地 CK 存储库列出一些带有通配符的 CK 模块<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck ls module:<span class="o">{</span>wildcard<span class="o">}</span>
+</pre></div>
+</div>
+<p>例子：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck ls module:re* --all
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">default</span><span class="p">:</span><span class="n">module</span><span class="p">:</span><span class="n">repo</span>
+ <span class="n">ck</span><span class="o">-</span><span class="n">analytics</span><span class="p">:</span><span class="n">module</span><span class="p">:</span><span class="n">report</span>
+ <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>在给定的存储库中列出给定 CK 模块的 CK 条目<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck ls <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck ls <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:*
+</pre></div>
+</div>
+<p>通配符：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck ls <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>wildcard <span class="k">for</span> CK entries<span class="o">}</span>
+</pre></div>
+</div>
+<p>例子：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck ls ctuning-datasets-min:dataset:*jpeg*dnn*
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">ctuning</span><span class="o">-</span><span class="n">datasets</span><span class="o">-</span><span class="nb">min</span><span class="p">:</span><span class="n">dataset</span><span class="p">:</span><span class="n">image</span><span class="o">-</span><span class="n">jpeg</span><span class="o">-</span><span class="n">dnn</span><span class="o">-</span><span class="n">cat</span>
+  <span class="n">ctuning</span><span class="o">-</span><span class="n">datasets</span><span class="o">-</span><span class="nb">min</span><span class="p">:</span><span class="n">dataset</span><span class="p">:</span><span class="n">image</span><span class="o">-</span><span class="n">jpeg</span><span class="o">-</span><span class="n">dnn</span><span class="o">-</span><span class="n">cat</span><span class="o">-</span><span class="n">gray</span>
+  <span class="n">ctuning</span><span class="o">-</span><span class="n">datasets</span><span class="o">-</span><span class="nb">min</span><span class="p">:</span><span class="n">dataset</span><span class="p">:</span><span class="n">image</span><span class="o">-</span><span class="n">jpeg</span><span class="o">-</span><span class="n">dnn</span><span class="o">-</span><span class="n">computer</span><span class="o">-</span><span class="n">mouse</span>
+  <span class="n">ctuning</span><span class="o">-</span><span class="n">datasets</span><span class="o">-</span><span class="nb">min</span><span class="p">:</span><span class="n">dataset</span><span class="p">:</span><span class="n">image</span><span class="o">-</span><span class="n">jpeg</span><span class="o">-</span><span class="n">dnn</span><span class="o">-</span><span class="n">cropped</span><span class="o">-</span><span class="n">panda</span>
+  <span class="n">ctuning</span><span class="o">-</span><span class="n">datasets</span><span class="o">-</span><span class="nb">min</span><span class="p">:</span><span class="n">dataset</span><span class="p">:</span><span class="n">image</span><span class="o">-</span><span class="n">jpeg</span><span class="o">-</span><span class="n">dnn</span><span class="o">-</span><span class="n">fish</span><span class="o">-</span><span class="n">bike</span>
+  <span class="n">ctuning</span><span class="o">-</span><span class="n">datasets</span><span class="o">-</span><span class="nb">min</span><span class="p">:</span><span class="n">dataset</span><span class="p">:</span><span class="n">image</span><span class="o">-</span><span class="n">jpeg</span><span class="o">-</span><span class="n">dnn</span><span class="o">-</span><span class="n">snake</span><span class="o">-</span><span class="mi">224</span>
+  <span class="n">ctuning</span><span class="o">-</span><span class="n">datasets</span><span class="o">-</span><span class="nb">min</span><span class="p">:</span><span class="n">dataset</span><span class="p">:</span><span class="n">image</span><span class="o">-</span><span class="n">jpeg</span><span class="o">-</span><span class="n">dnn</span><span class="o">-</span><span class="n">surfers</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>通过标签搜索 CK 条目<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck search <span class="o">{</span>CK module<span class="o">}</span> --tags<span class="o">={</span>list of tags separated by comma<span class="o">}</span>
+</pre></div>
+</div>
+<p>或</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck search <span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>wildcard <span class="k">for</span> CK entries<span class="o">}</span> --tags<span class="o">={</span>list of tags separated by comma<span class="o">}</span>
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck search <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>wildcard <span class="k">for</span> CK entries<span class="o">}</span> --tags<span class="o">={</span>list of tags separated by comma<span class="o">}</span>
+</pre></div>
+</div>
+<p>例子：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck search dataset --tags<span class="o">=</span>jpeg
+ck search dataset:*dnn* --tags<span class="o">=</span>jpeg
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>通过字符串搜索 CK 条目<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>您可以通过 JSON 元描述中键值的给定字符串的出现来搜索 CK 条目</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck search <span class="o">{</span>CK module<span class="o">}</span> --search_string<span class="o">={</span>string with wildcards<span class="o">}</span>
+</pre></div>
+</div>
+<p>请注意，CK 支持 <a class="reference external" href="https://www.elastic.co/">ElasticSearch</a> 对所有 CK JSON 元描述的透明索引，以支持快速搜索和强大的查询。这个模式在我们的 <a class="reference external" href="https://cknowledge.io/">cKnowledge.io 平台</a> 中使用。请参阅以下网页，了解如何用 ES 配置你的 CK 安装：</p>
+<ul class="simple">
+<li><p>https://github.com/mlcommons/ck/wiki/Customization</p></li>
+<li><p>https://github.com/mlcommons/ck/wiki/Indexing-entries</p></li>
+<li><p>https://github.com/mlcommons/ck/wiki/Searching-entries</p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>查找到给定 CK 条目的路径<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck find <span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry<span class="o">}</span>
+</pre></div>
+</div>
+<p>或者</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck find <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry<span class="o">}</span>
+</pre></div>
+</div>
+<p>例子：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck find module:repo
+ck find dataset:image-jpeg-dnn-snake-224
+ck find ctuning-datasets-min:dataset:image-jpeg-dnn-snake-224
+</pre></div>
+</div>
+</div>
+<div class="section" id="json">
+<h3>显示一个给定条目的 JSON 元描述<a class="headerlink" href="#json" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck load <span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry<span class="o">}</span> --min
+</pre></div>
+</div>
+<p>或</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck load <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry<span class="o">}</span> --min
+</pre></div>
+</div>
+</div>
+<div class="section" id="delete-a-given-ck-entry">
+<h3>Delete a given CK entry<a class="headerlink" href="#delete-a-given-ck-entry" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck rm <span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry <span class="o">(</span>can be with wildcard<span class="o">)}</span>
+</pre></div>
+</div>
+<p>或</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck rm <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry can be with wildcard<span class="o">}</span>
+</pre></div>
+</div>
+<p>或</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck remove <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry can be with wildcard<span class="o">}</span>
+</pre></div>
+</div>
+<p>或</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck delete <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry can be with wildcard<span class="o">}</span>
+</pre></div>
+</div>
+<p>例子：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck rm ctuning-datasets-min:dataset:image-jpeg-dnn-snake-224
+ck rm dataset:*dnn*
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-an-empty-ck-entry">
+<h3>Create an empty CK entry<a class="headerlink" href="#create-an-empty-ck-entry" title="永久链接至标题">¶</a></h3>
+<p>Create a CK entry in a <em>local</em> repository (CK scratch-pad):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck add <span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry name<span class="o">}</span>
+</pre></div>
+</div>
+<p>Create CK entry in a given repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck add <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry name<span class="o">}</span>
+
+If CK entry name is omitted, CK will create an entry with a UID:
+<span class="sb">```</span>bash
+ck add <span class="o">{</span>CK module<span class="o">}</span>
+</pre></div>
+</div>
+<p>例子：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ck add tmp
+
+  Entry  (2eab7af343d399d1, /home/fursin/CK-REPOS/local/tmp/2eab7af343d399d1) added successfully!
+
+ck add tmp:xyz
+
+  Entry xyz (44812ba5445a0a52, /home/fursin/CK-REPOS/local/tmp/xyz) added successfully!
+</pre></div>
+</div>
+<p>Note that CK always generate Unique IDs for all entries!</p>
+</div>
+<div class="section" id="rename-a-given-ck-entry">
+<h3>Rename a given CK entry<a class="headerlink" href="#rename-a-given-ck-entry" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck ren <span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry<span class="o">}</span> :<span class="o">{</span>new CK entry name<span class="o">}</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck ren <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry<span class="o">}</span> :<span class="o">{</span>new CK entry name<span class="o">}</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck rename <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry<span class="o">}</span> :<span class="o">{</span>new CK entry name<span class="o">}</span>
+</pre></div>
+</div>
+<p>Note that CK keeps the same global UID for a renamed entry to be able to always find it!</p>
+<p>例子：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck ren ctuning-datasets-min:dataset:image-jpeg-dnn-snake-224 :image-jpeg-dnn-snake
+</pre></div>
+</div>
+</div>
+<div class="section" id="move-a-given-ck-entry-to-another-ck-repository">
+<h3>Move a given CK entry to another CK repository<a class="headerlink" href="#move-a-given-ck-entry-to-another-ck-repository" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck mv <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry name<span class="o">}</span> <span class="o">{</span>CK new repo<span class="o">}</span>::
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck move <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry name<span class="o">}</span> <span class="o">{</span>CK new repo<span class="o">}</span>::
+</pre></div>
+</div>
+<p>例子：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ck</span> <span class="n">mv</span> <span class="n">ctuning</span><span class="o">-</span><span class="n">datasets</span><span class="o">-</span><span class="nb">min</span><span class="p">:</span><span class="n">dataset</span><span class="p">:</span><span class="n">image</span><span class="o">-</span><span class="n">jpeg</span><span class="o">-</span><span class="n">dnn</span><span class="o">-</span><span class="n">computer</span><span class="o">-</span><span class="n">mouse</span> <span class="n">local</span><span class="p">::</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="copy-a-given-ck-entry">
+<h3>Copy a given CK entry<a class="headerlink" href="#copy-a-given-ck-entry" title="永久链接至标题">¶</a></h3>
+<p>With a new name within the same repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck cp <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry name<span class="o">}</span> ::<span class="o">{</span>CK new entry name<span class="o">}</span>
+</pre></div>
+</div>
+<p>With a new name in a new repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck cp <span class="o">{</span>CK repo<span class="o">}</span>:<span class="o">{</span>CK module<span class="o">}</span>:<span class="o">{</span>CK entry name<span class="o">}</span> <span class="o">{</span>CK new repo<span class="o">}</span>::<span class="o">{</span>CK new entry name<span class="o">}</span>
+</pre></div>
+</div>
+<p>例子：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ck</span> <span class="n">cp</span> <span class="n">ctuning</span><span class="o">-</span><span class="n">datasets</span><span class="o">-</span><span class="nb">min</span><span class="p">:</span><span class="n">dataset</span><span class="p">:</span><span class="n">image</span><span class="o">-</span><span class="n">jpeg</span><span class="o">-</span><span class="n">dnn</span><span class="o">-</span><span class="n">computer</span><span class="o">-</span><span class="n">mouse</span> <span class="n">local</span><span class="p">::</span><span class="n">new</span><span class="o">-</span><span class="n">image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="cli-to-manage-ck-actions">
+<h2>CLI to manage CK actions<a class="headerlink" href="#cli-to-manage-ck-actions" title="永久链接至标题">¶</a></h2>
+<p>All the functionality in CK is implemented as automation actions in CK modules.</p>
+<p>All CK modules inherit default automation actions from the previous section to manage associated CK entries.</p>
+<p>A new action can be added to a given CK module as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck add_action <span class="o">{</span>module name<span class="o">}</span> --func<span class="o">={</span>action name<span class="o">}</span>
+</pre></div>
+</div>
+<p>CK will ask you a few questions and will create a dummy function in the given CK module.
+You can immediately test it as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck <span class="o">{</span>action name<span class="o">}</span> <span class="o">{</span>module name<span class="o">}</span>
+</pre></div>
+</div>
+<p>It will just print the input as JSON to let you play with the command line
+and help you understand how CK converts the command line parameters
+into the dictionary input for this function.</p>
+<p>Next, you can find this module and start modifying this function:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck find module:<span class="o">{</span>module name<span class="o">}</span>
+</pre></div>
+</div>
+<p>For example, you can add the following Python code inside
+this function to load some meta description of the entry ‘‘my data’’
+when you call the following action:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ck <span class="o">{</span>action name<span class="o">}</span> <span class="o">{</span>module name<span class="o">}</span>:<span class="o">{</span>my data<span class="o">}</span>
+</pre></div>
+</div>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="p">{</span><span class="n">action</span> <span class="n">name</span><span class="p">}(</span><span class="n">i</span><span class="p">):</span>
+
+    <span class="n">action</span><span class="o">=</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span>     <span class="c1"># CK will substitute &#39;action&#39; with {action name}</span>
+    <span class="n">module</span><span class="o">=</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;module_uoa&#39;</span><span class="p">]</span> <span class="c1"># CK will substitute &#39;module_uoa&#39; with {module name}</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;data_uoa&#39;</span><span class="p">]</span>     <span class="c1"># CK will substitute &#39;data_uoa&#39; with {my data}</span>
+
+    <span class="c1"># Call CK API to load meta description of a given entry</span>
+    <span class="c1"># Equivalent to the command line: &quot;ck load {module name}:{data name}&quot;</span>
+    <span class="n">r</span><span class="o">=</span><span class="n">ck</span><span class="o">.</span><span class="n">access</span><span class="p">({</span><span class="s1">&#39;action&#39;</span><span class="p">:</span><span class="s1">&#39;load&#39;</span><span class="p">,</span>
+                 <span class="s1">&#39;module_uoa&#39;</span><span class="p">:</span><span class="n">work</span><span class="p">[</span><span class="s1">&#39;self_module_uid&#39;</span><span class="p">],</span> <span class="c1"># Load the UID of a given module</span>
+                 <span class="s1">&#39;data_uoa&#39;</span><span class="p">:</span><span class="n">data</span><span class="p">})</span>
+    <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="n">r</span> <span class="c1"># Universal error handler in the CK</span>
+
+    <span class="n">meta</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;dict&#39;</span><span class="p">]</span>      <span class="c1"># meta of a given entry</span>
+    <span class="n">info</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;info&#39;</span><span class="p">]</span>      <span class="c1"># provenance info of this entry</span>
+    <span class="n">path</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span>      <span class="c1"># local path to this entry</span>
+    <span class="n">uoa</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;data_uoa&#39;</span><span class="p">]</span>   <span class="c1"># Name of the CK entry if exists. Otherwise UID.</span>
+    <span class="n">uid</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;data_uid&#39;</span><span class="p">]</span>   <span class="c1"># Only UID of the entry</span>
+</pre></div>
+</div>
+<p>Note that <em>uoa</em> means that this variable accepts Unique ID or Alias (user-friendly name).</p>
+<p>Here <em>ck</em> is a CK kernel with various productivity functions
+and one unified <em>access</em> function to all CK modules and actions
+with unified dictionary (JSON) I/O.</p>
+<p>You can find JSON API for all internal CK actions from the previous section that manage CK entries
+from the command line as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> ck get_api --func<span class="o">={</span>internal action<span class="o">}</span>
+</pre></div>
+</div>
+<p>For example, you can check the API of the “load” action as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> ck get_api --func<span class="o">=</span>load
+</pre></div>
+</div>
+<p>For non-internal actions, you can check their API as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> ck <span class="o">{</span>action name<span class="o">}</span> <span class="o">{</span>module name<span class="o">}</span> --help
+</pre></div>
+</div>
+<p>You can also check them at the <a class="reference external" href="https://cKnowledge.io/modules">cKnowledge.io platform</a>.</p>
+<p>When executing the following command</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span> ck my_action my_module --param1<span class="o">=</span>value1 --param2 -param3<span class="o">=</span>value3 param4 @input.json ...
+</pre></div>
+</div>
+<p>CK will convert the above command line parameters to the following Python dictionary ‘‘i’’
+for a given action:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span> <span class="n">i</span><span class="o">=</span><span class="p">{</span>
+     <span class="s2">&quot;action&quot;</span><span class="p">:</span><span class="s2">&quot;my_action&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;module_uoa&quot;</span><span class="p">:</span><span class="s2">&quot;my_module&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;param1&quot;</span><span class="p">:</span><span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;param2&quot;</span><span class="p">:</span><span class="s2">&quot;yes&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;param3&quot;</span><span class="p">:</span><span class="s2">&quot;value3&quot;</span>
+
+     <span class="c1">#extra keys merged from the input.json</span>
+
+     <span class="o">...</span>
+ <span class="p">}</span>
+</pre></div>
+</div>
+<p>Note that when adding a new action to a given module, CK will also create a description
+of this action inside the <em>meta.json</em> of this module. You can see an example
+of such descriptions for the internal CK module “repo” <a class="reference external" href="https://github.com/mlcommons/ck/blob/master/ck/repo/module/repo/.cm/meta.json">here</a>.
+When CK calls an action, it is not invoked directly from the given Python module
+but CK first checks the description, tests inputs, and then passes the control to the given Python module.</p>
+<p>Also note that we suggest not to use aliases (user-friendly names) inside CK modules
+but CK UIDs. The reason is that CK names may change while CK UIDs stay persistent.
+We specify dependencies on other CK modules in the <em>meta.json</em> of a given module
+using the <em>module_deps</em> key. See an example in the CK module <em>program</em>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ctuning/ck-autotuning/blob/master/module/program/.cm/meta.json#L118">program meta.json</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ctuning/ck-autotuning/blob/master/module/program/module.py#L479">how it is used in the CK module program</a></p></li>
+</ul>
+<p>Such approach also allows us to visualize the growing knowledge graph:
+<a class="reference external" href="https://cKnowledge.io/kg1">interactive graph</a>,
+<a class="reference external" href="https://youtu.be/nabXHyot5is">video</a>.</p>
+<p>Finally, a given CK module has an access to the 3 dictionaries:</p>
+<ul class="simple">
+<li><p><em>cfg</em> - this dictionary is loaded from the <em>meta.json</em> file from the CK module</p></li>
+<li><p><em>work</em> - this dictionary has some run-time information:</p>
+<ul>
+<li><p>self_module_uid: UID of the module</p></li>
+<li><p>self_module_uoa: Alias (user-friendly name of the module) or UID</p></li>
+<li><p>self_module_alias: Alias (user-friendly name of the module) or empty</p></li>
+<li><p>path: path to the CK module</p></li>
+</ul>
+</li>
+<li><p><em>ck.cfg</em> - CK global <a class="reference external" href="https://github.com/mlcommons/ck/blob/master/ck/kernel.py#L48">cfg dictionary</a>
+that is updated at run-time with the meta description of the “kernel:default” entry.
+This dictionary is used to customize the local CK installation.</p></li>
+</ul>
+</div>
+<div class="section" id="ck-python-api">
+<h2>CK Python API<a class="headerlink" href="#ck-python-api" title="永久链接至标题">¶</a></h2>
+<p>One of the goals of the CK framework was to make it very simple for any user to access any automation action.
+That is why we have developed just one <a class="reference external" href="https://ck.readthedocs.io/en/latest/src/ck.html#ck.kernel.access">unified Python “access” function</a>
+that allows one to access all automation actions with a simple I/O (dictionary as input and dictionary as output).</p>
+<p>You can call this function from any Python script or from CK modules as follows:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ck.kernel</span> <span class="k">as</span> <span class="nn">ck</span>
+
+<span class="n">i</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;action&#39;</span><span class="p">:</span> <span class="c1"># specify action</span>
+   <span class="s1">&#39;module_uoa&#39;</span><span class="p">:</span> <span class="c1"># specify CK module UID or alias</span>
+
+   <span class="n">check</span> <span class="n">keys</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">given</span> <span class="n">automation</span> <span class="n">action</span> <span class="k">for</span> <span class="n">a</span> <span class="n">given</span> <span class="n">CK</span> <span class="n">module</span> <span class="p">(</span><span class="n">ck</span> <span class="n">action</span> <span class="n">module</span> <span class="o">--</span><span class="n">help</span><span class="p">)</span>
+  <span class="p">}</span>
+
+<span class="n">r</span><span class="o">=</span><span class="n">ck</span><span class="o">.</span><span class="n">access</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span> <span class="k">return</span> <span class="n">r</span> <span class="c1"># if used inside CK modules to propagate to all CK callers</span>
+<span class="c1">#if r[&#39;return&#39;]&gt;0: ck.err(r) # if used inside Python scripts to print an error and exit</span>
+
+<span class="c1">#r dictionary will contain keys from the given automation action.</span>
+<span class="c1"># See API of this automation action (ck action module --help)</span>
+</pre></div>
+</div>
+<p>Such approach allows users to continue extending different automation actions by adding new keys
+while keeping backward compatibility. That’s how we managed to develop 50+ modules with the community
+without breaking portable CK workflows for our ML&amp;systems R&amp;D.</p>
+<p>At the same time, we have implemented a number of “productivity” functions
+in the CK kernel that are commonly used by many researchers and engineers.
+For example, you can load JSON files, list files in directories, copy strings to clipboards.
+At the same time, we made sure that these functions work in the same way across
+different Python versions (2.7+ and 3+) and different operating systems
+thus removing this burden from developers.</p>
+<p>You can see the list of such productivity functions <a class="reference external" href="https://ck.readthedocs.io/en/latest/src/ck.html">here</a>.
+For example, you can <a class="reference external" href="https://ck.readthedocs.io/en/latest/src/ck.html#ck.kernel.load_json_file">load a json file</a>
+in your script or CK module in a unified way as follows:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ck.kernel</span> <span class="k">as</span> <span class="nn">ck</span>
+
+<span class="n">r</span><span class="o">=</span><span class="n">ck</span><span class="o">.</span><span class="n">load_json_file</span><span class="p">({</span><span class="s1">&#39;json_file&#39;</span><span class="p">:</span><span class="s1">&#39;some_file.json&#39;</span><span class="p">})</span>
+<span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span> <span class="n">ck</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+<span class="n">d</span><span class="o">=</span><span class="n">r</span><span class="p">[</span><span class="s1">&#39;dict&#39;</span><span class="p">]</span>
+
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;modify_some_key&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;new value&#39;</span>
+
+<span class="n">r</span><span class="o">=</span><span class="n">ck</span><span class="o">.</span><span class="n">save_json_to_file</span><span class="p">({</span><span class="s1">&#39;json_file&#39;</span><span class="p">:</span><span class="s1">&#39;new_file.json&#39;</span><span class="p">,</span> <span class="s1">&#39;dict&#39;</span><span class="p">:</span><span class="n">d</span><span class="p">,</span> <span class="s1">&#39;sort_keys&#39;</span><span class="p">:</span><span class="s1">&#39;yes&#39;</span><span class="p">})</span>
+<span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;return&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span> <span class="n">ck</span><span class="o">.</span><span class="n">err</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>更多资源<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/mlcommons/ck/wiki">CK wiki</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "xinetzone/ck-book",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./start"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+<div class="section">
+   
+</div>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="typical-usage.html" title="上一页 页">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">上一页</p>
+            <p class="prev-next-title">最常用的用法(待更)</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../about/index.html" title="下一页 页">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">下一页</p>
+        <p class="prev-next-title">关于</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      通过 xinetzone<br/>
+    
+        &copy; 版权 2021, xinetzone.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
