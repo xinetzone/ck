@@ -7,4 +7,5 @@ intro
 install
 first-steps
 typical-usage
+commands
 ```
